@@ -1,12 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech World</title>
+  <title>ProgramaYA! - Aprende a programar</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Welcome to Tech World</h1>
-  <p>Discover the latest in technology and innovation.</p>
+  <header>
+    <div class="container">
+      <p class="logo">ProgramaYA!</p>
+      <nav>
+        <a href="#somos-proya">Quiénes somos</a>
+        <a href="#nuestros-programas">Nuestros programas</a>
+        <a href="#caracteristicas">Características</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero">
+      <h1>Aprende a programar <br>con nosotros</h1>
+      <button>Comienza ahora</button>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="somos-proya">
+      <div class="container">
+        <figure class="img-container">
+          <!-- Aquí puedes poner tu tag <img> si lo deseas -->
+        </figure>
+        <h2>Somos <span class="color-ya">ProgramaYA!</span></h2>
+        <p>Somos una empresa de tecnología que ofrece cursos de programación para todos.</p>
+      </div>
+    </section>
+
+    <!-- Cursos / Programas -->
+    <section id="nuestros-programas">
+      <div class="container">
+        <h2>Nuestros Programas</h2>
+        
+        <!-- Reemplazamos la estructura por un wrapper con <article> interior -->
+        <div class="programas">
+          <article class="carta">
+            <h3>Programador Front-end</h3>
+            <p>Aprende a construir la interfaz visual de páginas y aplicaciones web con HTML, CSS y JavaScript.</p>
+            <button>+ Info</button>
+          </article>
+
+          <article class="carta">
+            <h3>Programador Full Stack</h3>
+            <p>Domina tanto el desarrollo visual como la lógica del servidor y bases de datos en un solo programa.</p>
+            <button>+ Info</button>
+          </article>
+
+          <article class="carta">
+            <h3>Programador Python</h3>
+            <p>Conoce uno de los lenguajes más demandados del mercado, ideal para backend, ciencia de datos e IA.</p>
+            <button>+ Info</button>
+          </article>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Características -->
+    <section id="caracteristicas">
+      <div class="container">
+        <ul>
+          <li>100% Online</li>
+          <li>Flexibilidad de Horarios</li>
+          <li>Soporte 1:1</li>
+          <li>Asistencia Financiera</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Cierre / CTA Final -->
+    <section id="final">
+      <h2>¿Listo para programar?</h2>
+      <button>¡Aplica ya!</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 ProgramaYA!. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </body>
 </html>

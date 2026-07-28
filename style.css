@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Cambio a una fuente Sans-Serif moderna y limpia */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  color: #333;
+}
+
+/* Typography base */
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; }
+p { font-size: 1.1rem; line-height: 1.6; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.color-ya {
+  color: blueviolet;
+}
+
+/* Botones con transición suave y mejor cursor */
+button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+  color: #fff;
+  background-color: blueviolet;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: rgb(83, 27, 135);
+  transform: translateY(-2px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Header & Navegación Layout */
+header {
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header .logo {
+  margin: 0;
+  padding: 20px 0;
+  font-weight: 800;
+  color: blueviolet;
+  font-size: 1.5rem;
+}
+
+header nav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+
+header a {
+  padding: 5px 12px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.2s;
+}
+
+header a:hover {
+  color: blueviolet;
+}
+
+/* Hero Section */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  height: 85vh;
+  color: #fff;
+  /* Fondo oscuro superpuesto sobre imagen de tecnología */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                    url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 0 20px;
+}
+
+#hero h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+#hero button {
+  font-size: 1.3rem;
+  padding: 15px 30px;
+}
+
+/* Sección Sobre Nosotros */
+#somos-proya .container {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+/* Sección Programas / Tarjetas */
+#nuestros-programas {
+  background-color: #1e1e1e;
+  color: #fff;
+  text-align: center;
+}
+
+#nuestros-programas .container {
+  padding: 80px 20px;
+}
+
+#nuestros-programas h2 {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+/* Contenedor de Tarjetas en Rejilla (Grid Layout) */
+.programas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+#nuestros-programas .carta {
+  background-position: center;
+  background-size: cover;
+  padding: 40px 25px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Eliminamos el 'display: none' para que los textos sean visibles */
+#nuestros-programas p {
+  display: block; 
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.carta:nth-child(1) {
+  background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600");
+}
+
+.carta:nth-child(2) {
+  background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600");
+}
+
+.carta:nth-child(3) {
+  background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600");
+}
+
+/* Características */
+#caracteristicas .container {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+#caracteristicas ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#caracteristicas li {
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: #f0e6ff;
+  color: blueviolet;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+/* Sección Final (CTA) */
+#final {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 80px 20px;
+  background-color: #141414;
+  color: white;
+}
+
+#final h2 {
+  /* Tamaño responsivo pero con límites máximos razonables */
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 30px;
+}
+
+#final button {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  padding: 15px 40px;
+}
+
+/* Footer */
+footer {
+  background-color: #e6e6e6;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+footer p {
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Media Queries para Pantallas Grandes (Desktop) */
+@media (min-width: 768px) {
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  header nav {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+
+  .programas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #caracteristicas ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
