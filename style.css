@@ -1,5 +1,5 @@
 /* ===================================================
-   VARIABLES CSS (Custom Properties)
+   VARIABLES CSS - The GOAT Base
    =================================================== */
 :root {
     --color-primary: #6366f1;
@@ -64,6 +64,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 .sr-only {
@@ -88,12 +89,12 @@ a {
     color: inherit;
 }
 
-ul {
+ul, ol {
     list-style: none;
 }
 
 /* ===================================================
-   HEADER
+   HEADER - Sticky con glassmorphism
    =================================================== */
 .main-header {
     position: fixed;
@@ -109,6 +110,11 @@ ul {
     transition: var(--transition-base);
 }
 
+.main-header.scrolled {
+    box-shadow: var(--shadow-md);
+    background: rgba(255, 255, 255, 0.95);
+}
+
 .nav-container {
     max-width: 1280px;
     margin: 0 auto;
@@ -119,7 +125,8 @@ ul {
     height: 72px;
 }
 
-.logo a {
+.logo a,
+.logo {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -133,7 +140,7 @@ ul {
     font-size: 1.8rem;
 }
 
-.logo span span {
+.logo strong {
     color: var(--color-primary);
 }
 
@@ -167,7 +174,8 @@ ul {
     color: var(--color-primary);
 }
 
-.nav-menu a:hover::after {
+.nav-menu a:hover::after,
+.nav-menu a:focus::after {
     width: 100%;
 }
 
@@ -175,6 +183,10 @@ ul {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.nav-actions li {
+    list-style: none;
 }
 
 .nav-actions button {
@@ -186,6 +198,7 @@ ul {
     padding: 0.6rem;
     border-radius: 50%;
     transition: var(--transition-fast);
+    position: relative;
 }
 
 .nav-actions button:hover {
@@ -211,6 +224,12 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .hamburger {
@@ -218,6 +237,9 @@ ul {
     flex-direction: column;
     gap: 5px;
     padding: 0.4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .hamburger span {
@@ -229,7 +251,7 @@ ul {
 }
 
 /* ===================================================
-   HERO
+   HERO - Impactante
    =================================================== */
 .hero {
     min-height: 100vh;
@@ -307,6 +329,10 @@ ul {
     margin-bottom: var(--spacing-lg);
 }
 
+.hero-buttons li {
+    list-style: none;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -349,6 +375,10 @@ ul {
     gap: var(--spacing-xl);
 }
 
+.hero-stats li {
+    list-style: none;
+}
+
 .stat {
     display: flex;
     flex-direction: column;
@@ -380,6 +410,12 @@ ul {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
     max-width: 100%;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 .floating-card {
@@ -434,6 +470,10 @@ ul {
     gap: var(--spacing-md);
 }
 
+.benefits-grid li {
+    list-style: none;
+}
+
 .benefit-card {
     background: var(--color-white);
     padding: var(--spacing-md);
@@ -453,7 +493,7 @@ ul {
     height: 60px;
     background: var(--bg-gradient);
     border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--spacing-sm);
@@ -517,6 +557,10 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-md);
+}
+
+.products-grid li {
+    list-style: none;
 }
 
 .product-card {
@@ -655,6 +699,7 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    font-family: var(--font-primary);
 }
 
 .btn-add-cart:hover {
@@ -683,6 +728,10 @@ ul {
     gap: var(--spacing-md);
 }
 
+.testimonials-grid li {
+    list-style: none;
+}
+
 .testimonial-card {
     background: var(--color-white);
     padding: var(--spacing-md);
@@ -696,33 +745,33 @@ ul {
     margin-bottom: 0.5rem;
 }
 
-.testimonial-card p {
+.testimonial-card blockquote p {
     color: var(--color-gray-700);
     font-style: italic;
     margin-bottom: var(--spacing-sm);
 }
 
-.testimonial-card footer {
+.testimonial-card blockquote footer {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
 }
 
-.testimonial-card footer img {
+.testimonial-card blockquote footer img {
     width: 48px;
     height: 48px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.testimonial-card footer cite {
+.testimonial-card blockquote footer cite {
     font-style: normal;
     font-weight: 600;
     display: block;
     font-size: 0.95rem;
 }
 
-.testimonial-card footer span {
+.testimonial-card blockquote footer span {
     font-size: 0.8rem;
     color: var(--color-gray-500);
 }
@@ -783,6 +832,7 @@ ul {
     border-radius: 50px;
     font-size: 1rem;
     outline: none;
+    font-family: var(--font-primary);
 }
 
 .newsletter-form input:focus {
@@ -827,6 +877,10 @@ ul {
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.footer-grid li {
+    list-style: none;
+}
+
 .footer-brand .logo {
     display: flex;
     align-items: center;
@@ -840,7 +894,7 @@ ul {
     color: var(--color-primary);
 }
 
-.footer-brand .logo span span {
+.footer-brand .logo strong {
     color: var(--color-primary);
 }
 
@@ -853,6 +907,10 @@ ul {
 .social-links {
     display: flex;
     gap: var(--spacing-sm);
+}
+
+.social-links li {
+    list-style: none;
 }
 
 .social-links a {
@@ -893,6 +951,13 @@ ul {
     color: var(--color-white);
 }
 
+.footer-divider {
+    max-width: 1280px;
+    margin: var(--spacing-sm) auto;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .footer-bottom {
     max-width: 1280px;
     margin: 0 auto;
@@ -913,7 +978,7 @@ ul {
 }
 
 /* ===================================================
-   RESPONSIVE - Mobile First GOAT
+   RESPONSIVE - GOAT Mobile First
    =================================================== */
 @media (max-width: 1024px) {
     .hero {
@@ -955,6 +1020,7 @@ ul {
     .testimonials-grid {
         grid-template-columns: 1fr;
         max-width: 500px;
+        margin: 0 auto;
     }
     
     .newsletter-container {
