@@ -1,94 +1,516 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ProgramaYA! - Aprende a programar</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de gadgets tecnológicos con envío rápido y pagos seguros">
+    <title>TechStore - Gadgets del Futuro</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS GOAT Semántico -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header>
-    <div class="container">
-      <p class="logo">ProgramaYA!</p>
-      <nav>
-        <a href="#somos-proya">Quiénes somos</a>
-        <a href="#nuestros-programas">Nuestros programas</a>
-        <a href="#caracteristicas">Características</a>
-      </nav>
-    </div>
-  </header>
+    
+    <!-- ========================================== -->
+    <!-- HEADER - Barra de navegación sticky        -->
+    <!-- ========================================== -->
+    <header class="main-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Navegación principal">
+            <p class="logo">
+                <a href="#" aria-label="TechStore - Inicio">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </a>
+            </p>
+            
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#inicio" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="#productos" role="menuitem">Productos</a></li>
+                <li role="none"><a href="#ofertas" role="menuitem">Ofertas</a></li>
+                <li role="none"><a href="#blog" role="menuitem">Blog</a></li>
+                <li role="none"><a href="#contacto" role="menuitem">Contacto</a></li>
+            </ul>
+            
+            <ul class="nav-actions">
+                <li>
+                    <button class="search-btn" aria-label="Buscar productos">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="user-btn" aria-label="Mi cuenta">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="cart-btn" aria-label="Carrito de compras">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="cart-badge" aria-label="3 productos en el carrito">3</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="hamburger" aria-label="Menú móvil" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section id="hero">
-      <h1>Aprende a programar <br>con nosotros</h1>
-      <button>Comienza ahora</button>
-    </section>
-
-    <!-- Sobre Nosotros -->
-    <section id="somos-proya">
-      <div class="container">
-        <figure class="img-container">
-          <!-- Aquí puedes poner tu tag <img> si lo deseas -->
-        </figure>
-        <h2>Somos <span class="color-ya">ProgramaYA!</span></h2>
-        <p>Somos una empresa de tecnología que ofrece cursos de programación para todos.</p>
-      </div>
-    </section>
-
-    <!-- Cursos / Programas -->
-    <section id="nuestros-programas">
-      <div class="container">
-        <h2>Nuestros Programas</h2>
+    <!-- ========================================== -->
+    <!-- MAIN - Contenido principal                 -->
+    <!-- ========================================== -->
+    <main role="main">
         
-        <!-- Reemplazamos la estructura por un wrapper con <article> interior -->
-        <div class="programas">
-          <article class="carta">
-            <h3>Programador Front-end</h3>
-            <p>Aprende a construir la interfaz visual de páginas y aplicaciones web con HTML, CSS y JavaScript.</p>
-            <button>+ Info</button>
-          </article>
+        <!-- ======================================== -->
+        <!-- SECTION 1: HERO - Banner principal      -->
+        <!-- ======================================== -->
+        <section id="inicio" class="hero" aria-labelledby="hero-title">
+            <header class="hero-content">
+                <p class="hero-badge" aria-label="Oferta del día">🔥 Oferta del Día</p>
+                <h1 id="hero-title">Los Gadgets que <br> <span>Revolucionan</span> tu Vida</h1>
+                <p class="hero-subtitle">
+                    Descubre la tecnología más avanzada con envío gratuito, 
+                    <strong>devolución en 30 días</strong> y los mejores precios.
+                </p>
+                <ul class="hero-buttons">
+                    <li>
+                        <a href="#productos" class="btn btn-primary">
+                            <i class="fas fa-rocket" aria-hidden="true"></i> Ver Productos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ofertas" class="btn btn-secondary">
+                            <i class="fas fa-tags" aria-hidden="true"></i> Ver Ofertas
+                        </a>
+                    </li>
+                </ul>
+                <ul class="hero-stats">
+                    <li class="stat">
+                        <span class="stat-number">15K+</span>
+                        <span class="stat-label">Clientes felices</span>
+                    </li>
+                    <li class="stat">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">⭐ Calificación</span>
+                    </li>
+                    <li class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Soporte</span>
+                    </li>
+                </ul>
+            </header>
+            <figure class="hero-image">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600" 
+                     alt="Gadgets tecnológicos modernos" 
+                     loading="lazy">
+                <figcaption class="sr-only">Gadgets tecnológicos modernos</figcaption>
+                <aside class="floating-card card-1">
+                    <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+                    <span>Envío <strong>Gratis</strong></span>
+                </aside>
+                <aside class="floating-card card-2">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span>Pago <strong>Seguro</strong></span>
+                </aside>
+            </figure>
+        </section>
 
-          <article class="carta">
-            <h3>Programador Full Stack</h3>
-            <p>Domina tanto el desarrollo visual como la lógica del servidor y bases de datos en un solo programa.</p>
-            <button>+ Info</button>
-          </article>
+        <!-- ======================================== -->
+        <!-- SECTION 2: BENEFICIOS                   -->
+        <!-- ======================================== -->
+        <section class="benefits" aria-label="Beneficios de comprar con nosotros">
+            <ul class="benefits-grid">
+                <li class="benefit-card">
+                    <span class="benefit-icon" aria-hidden="true">
+                        <i class="fas fa-truck-fast"></i>
+                    </span>
+                    <h3>Envío Rápido</h3>
+                    <p>Entrega en 3-5 días hábiles. Seguimiento en tiempo real.</p>
+                </li>
+                <li class="benefit-card">
+                    <span class="benefit-icon" aria-hidden="true">
+                        <i class="fas fa-rotate-left"></i>
+                    </span>
+                    <h3>Devolución Fácil</h3>
+                    <p>30 días para cambiar de opinión. Sin preguntas incómodas.</p>
+                </li>
+                <li class="benefit-card">
+                    <span class="benefit-icon" aria-hidden="true">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <h3>Pago Seguro</h3>
+                    <p>Protegemos tus datos con encriptación de nivel bancario.</p>
+                </li>
+                <li class="benefit-card">
+                    <span class="benefit-icon" aria-hidden="true">
+                        <i class="fas fa-headset"></i>
+                    </span>
+                    <h3>Soporte 24/7</h3>
+                    <p>Nuestro equipo está listo para ayudarte cuando lo necesites.</p>
+                </li>
+            </ul>
+        </section>
 
-          <article class="carta">
-            <h3>Programador Python</h3>
-            <p>Conoce uno de los lenguajes más demandados del mercado, ideal para backend, ciencia de datos e IA.</p>
-            <button>+ Info</button>
-          </article>
-        </div>
-        
-      </div>
-    </section>
+        <!-- ======================================== -->
+        <!-- SECTION 3: PRODUCTOS                    -->
+        <!-- ======================================== -->
+        <section id="productos" class="products" aria-labelledby="products-title">
+            <header class="section-header">
+                <p class="section-tag">Catálogo</p>
+                <h2 id="products-title">Productos <span>Destacados</span></h2>
+                <p>Los gadgets más vendidos de la temporada</p>
+            </header>
 
-    <!-- Características -->
-    <section id="caracteristicas">
-      <div class="container">
-        <ul>
-          <li>100% Online</li>
-          <li>Flexibilidad de Horarios</li>
-          <li>Soporte 1:1</li>
-          <li>Asistencia Financiera</li>
+            <ul class="products-grid">
+
+                <!-- Producto 1 -->
+                <li class="product-card" data-category="gadgets">
+                    <figure class="product-image">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_809632-MCO70369222768_072023-O.webp" 
+                             alt="Smartwatch con monitor cardiaco" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Smartwatch Pro X1 con Monitor Cardiaco</figcaption>
+                        <span class="product-badge">-30%</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Smartwatch Pro X1 con Monitor Cardiaco</h3>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                            <span class="reviews">(124 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$129.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$89.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="1">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 2 -->
+                <li class="product-card" data-category="audio">
+                    <figure class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" 
+                             alt="Auriculares inalámbricos" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Auriculares Bluetooth 5.3 Noise Cancelling</figcaption>
+                        <span class="product-badge">Nuevo</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Auriculares Bluetooth 5.3 Noise Cancelling</h3>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="4 estrellas">★★★★☆</span>
+                            <span class="reviews">(89 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="new-price" aria-label="Precio">$59.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="2">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 3 -->
+                <li class="product-card" data-category="accesorios">
+                    <figure class="product-image">
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" 
+                             alt="Cámara instantánea" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Cámara Instantánea con Impresión Incluida</figcaption>
+                        <span class="product-badge">-20%</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Cámara Instantánea con Impresión Incluida</h3>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                            <span class="reviews">(67 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$79.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$63.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="3">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 4 -->
+                <li class="product-card" data-category="gadgets">
+                    <figure class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" 
+                             alt="Zapatillas inteligentes" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Zapatillas Inteligentes con GPS Integrado</figcaption>
+                        <span class="product-badge">Oferta</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Zapatillas Inteligentes con GPS Integrado</h3>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="4 estrellas">★★★★☆</span>
+                            <span class="reviews">(43 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$149.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$119.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="4">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 5 -->
+                <li class="product-card" data-category="audio">
+                    <figure class="product-image">
+                        <img src="https://images.unsplash.com/photo-1545127398-14699f92334b?w=400" 
+                             alt="Altavoz portátil" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Altavoz Portátil con Luces LED</figcaption>
+                        <span class="product-badge">-15%</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Altavoz Portátil con Luces LED</h3>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                            <span class="reviews">(205 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$45.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$38.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="5">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 6 -->
+                <li class="product-card" data-category="accesorios">
+                    <figure class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" 
+                             alt="Reloj inteligente" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Reloj Inteligente Serie 8 con Esfera OLED</figcaption>
+                        <span class="product-badge">Top</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Reloj Inteligente Serie 8 con Esfera OLED</h3>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                            <span class="reviews">(312 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$199.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$159.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="6">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+            </ul>
+
+            <footer class="products-cta">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-store" aria-hidden="true"></i> Ver todos los productos
+                </a>
+            </footer>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SECTION 4: TESTIMONIOS                  -->
+        <!-- ======================================== -->
+        <section class="testimonials" aria-labelledby="testimonials-title">
+            <header class="section-header">
+                <p class="section-tag">Testimonios</p>
+                <h2 id="testimonials-title">Lo que dicen <span>nuestros clientes</span></h2>
+            </header>
+
+            <ul class="testimonials-grid">
+                <li class="testimonial-card">
+                    <blockquote>
+                        <p class="testimonial-stars" aria-label="5 estrellas">★★★★★</p>
+                        <p>"El producto llegó antes de lo esperado y la calidad es excelente. Volveré a comprar sin duda."</p>
+                        <footer>
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de María González" loading="lazy">
+                            <cite>María González</cite>
+                            <span>Compradora verificada</span>
+                        </footer>
+                    </blockquote>
+                </li>
+
+                <li class="testimonial-card">
+                    <blockquote>
+                        <p class="testimonial-stars" aria-label="5 estrellas">★★★★★</p>
+                        <p>"El soporte fue increíble. Tuve un problema con el envío y me lo resolvieron en minutos."</p>
+                        <footer>
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de Carlos Ruiz" loading="lazy">
+                            <cite>Carlos Ruiz</cite>
+                            <span>Comprador verificad</span>
+                        </footer>
+                    </blockquote>
+                </li>
+
+                <li class="testimonial-card">
+                    <blockquote>
+                        <p class="testimonial-stars" aria-label="4 estrellas">★★★★☆</p>
+                        <p>"Relación calidad-precio excelente. El producto superó mis expectativas."</p>
+                        <footer>
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto de Laura Méndez" loading="lazy">
+                            <cite>Laura Méndez</cite>
+                            <span>Compradora verificada</span>
+                        </footer>
+                    </blockquote>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SECTION 5: NEWSLETTER                   -->
+        <!-- ======================================== -->
+        <section class="newsletter" aria-labelledby="newsletter-title">
+            <article class="newsletter-container">
+                <header class="newsletter-content">
+                    <p class="newsletter-tag">📧 Newsletter</p>
+                    <h2 id="newsletter-title">Suscríbete y <span>ahorra un 10%</span></h2>
+                    <p>Recibe ofertas exclusivas, novedades y un cupón de descuento para tu primera compra.</p>
+                    <form class="newsletter-form" action="#" method="POST">
+                        <p class="form-group">
+                            <label for="email-input" class="sr-only">Correo electrónico</label>
+                            <input type="email" id="email-input" placeholder="tu@email.com" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Suscribirme
+                            </button>
+                        </p>
+                        <small class="form-note">No compartiremos tu email. Puedes cancelar cuando quieras.</small>
+                    </form>
+                </header>
+                <figure class="newsletter-image">
+                    <img src="https://images.unsplash.com/photo-1527018601594-1fd2a145f9a6?w=400" 
+                         alt="Ofertas exclusivas" 
+                         loading="lazy">
+                    <figcaption class="sr-only">Ofertas exclusivas</figcaption>
+                </figure>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- FOOTER - Pie de página                    -->
+    <!-- ========================================== -->
+    <footer class="main-footer" role="contentinfo">
+        <ul class="footer-grid">
+            
+            <!-- Columna 1: Marca -->
+            <li class="footer-brand">
+                <p class="logo">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </p>
+                <p>Tu tienda de tecnología favorita. Calidad, innovación y los mejores precios.</p>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 2: Enlaces rápidos -->
+            <li class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 3: Atención al cliente -->
+            <li class="footer-links">
+                <h4>Atención al cliente</h4>
+                <ul>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Política de envío</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 4: Legal -->
+            <li class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de cookies</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                </ul>
+            </li>
+
         </ul>
-      </div>
-    </section>
 
-    <!-- Cierre / CTA Final -->
-    <section id="final">
-      <h2>¿Listo para programar?</h2>
-      <button>¡Aplica ya!</button>
-    </section>
-  </main>
+        <hr class="footer-divider">
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 ProgramaYA!. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+        <p class="footer-bottom">
+            <span>&copy; 2026 TechStore. Todos los derechos reservados.</span>
+            <span class="payment-methods">
+                <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+                <i class="fab fa-cc-amex" aria-label="American Express"></i>
+            </span>
+        </p>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- SCRIPT para menú móvil                     -->
+    <!-- ========================================== -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            const expanded = navMenu.classList.contains('open');
+            hamburger.setAttribute('aria-expanded', expanded);
+        });
+    </script>
+
 </body>
 </html>
