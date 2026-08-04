@@ -163,6 +163,25 @@
         </section>
 
         <!-- ======================================== -->
+        <!-- SECTION: MARCAS - Confianza               -->
+        <!-- ======================================== -->
+        <section class="brands" aria-label="Marcas con las que trabajamos">
+            <p class="brands-label">Confían en nosotros</p>
+            <ul class="brands-track">
+                <li><i class="fab fa-apple" aria-hidden="true"></i> Apple</li>
+                <li><i class="fab fa-samsung" aria-hidden="true"></i> Samsung</li>
+                <li><i class="fab fa-google" aria-hidden="true"></i> Google</li>
+                <li><i class="fab fa-spotify" aria-hidden="true"></i> Spotify</li>
+                <li><i class="fab fa-amazon" aria-hidden="true"></i> Amazon</li>
+                <li><i class="fab fa-microsoft" aria-hidden="true"></i> Microsoft</li>
+                <li><i class="fab fa-apple" aria-hidden="true"></i> Apple</li>
+                <li><i class="fab fa-samsung" aria-hidden="true"></i> Samsung</li>
+                <li><i class="fab fa-google" aria-hidden="true"></i> Google</li>
+                <li><i class="fab fa-spotify" aria-hidden="true"></i> Spotify</li>
+            </ul>
+        </section>
+
+        <!-- ======================================== -->
         <!-- SECTION 3: PRODUCTOS                    -->
         <!-- ======================================== -->
         <section id="productos" class="products" aria-labelledby="products-title">
@@ -171,6 +190,13 @@
                 <h2 id="products-title">Productos <span>Destacados</span></h2>
                 <p>Los gadgets más vendidos de la temporada</p>
             </header>
+
+            <nav class="product-filters" aria-label="Filtrar productos por categoría">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="gadgets">Gadgets</button>
+                <button class="filter-btn" data-filter="audio">Audio</button>
+                <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+            </nav>
 
             <ul class="products-grid">
 
@@ -351,7 +377,35 @@
         </section>
 
         <!-- ======================================== -->
-        <!-- SECTION 4: TESTIMONIOS                  -->
+        <!-- SECTION 4: OFERTAS FLASH                -->
+        <!-- ======================================== -->
+        <section id="ofertas" class="flash-sale" aria-labelledby="flash-title">
+            <article class="flash-sale-container">
+                <header class="flash-content">
+                    <p class="section-tag">⚡ Oferta Flash</p>
+                    <h2 id="flash-title">Hasta <span>50% OFF</span> en seleccionados</h2>
+                    <p>No dejes pasar esta oportunidad. Stock limitado.</p>
+                    <ul class="countdown" aria-label="Tiempo restante de la oferta">
+                        <li><span id="countdown-hours">00</span><small>Horas</small></li>
+                        <li><span id="countdown-minutes">00</span><small>Min</small></li>
+                        <li><span id="countdown-seconds">00</span><small>Seg</small></li>
+                    </ul>
+                    <a href="#productos" class="btn btn-primary">
+                        <i class="fas fa-bolt" aria-hidden="true"></i> Comprar ahora
+                    </a>
+                </header>
+                <figure class="flash-image">
+                    <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=500" 
+                         alt="Oferta flash en gadgets" 
+                         loading="lazy">
+                    <figcaption class="sr-only">Oferta flash en gadgets</figcaption>
+                    <span class="flash-badge">-50%</span>
+                </figure>
+            </article>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SECTION 5: TESTIMONIOS                  -->
         <!-- ======================================== -->
         <section class="testimonials" aria-labelledby="testimonials-title">
             <header class="section-header">
@@ -379,7 +433,7 @@
                         <footer>
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de Carlos Ruiz" loading="lazy">
                             <cite>Carlos Ruiz</cite>
-                            <span>Comprador verificad</span>
+                            <span>Comprador verificado</span>
                         </footer>
                     </blockquote>
                 </li>
@@ -399,7 +453,177 @@
         </section>
 
         <!-- ======================================== -->
-        <!-- SECTION 5: NEWSLETTER                   -->
+        <!-- SECTION 6: BLOG                         -->
+        <!-- ======================================== -->
+        <section id="blog" class="blog" aria-labelledby="blog-title">
+            <header class="section-header">
+                <p class="section-tag">Blog</p>
+                <h2 id="blog-title">Últimas <span>novedades</span></h2>
+                <p>Guías, reviews y tendencias del mundo tech</p>
+            </header>
+
+            <ul class="blog-grid">
+                <li class="blog-card">
+                    <figure class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400" 
+                             alt="Persona usando laptop con gadgets" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Los mejores gadgets de 2026</figcaption>
+                        <span class="blog-category">Guías</span>
+                    </figure>
+                    <article class="blog-body">
+                        <time datetime="2026-03-15">15 Mar 2026</time>
+                        <h3>Los 10 gadgets imprescindibles de 2026</h3>
+                        <p>Descubre qué dispositivos están marcando tendencia este año y cuáles valen la pena.</p>
+                        <a href="#" class="blog-link">Leer más <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                </li>
+                <li class="blog-card">
+                    <figure class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400" 
+                             alt="Auriculares con cancelación de ruido" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Review auriculares ANC</figcaption>
+                        <span class="blog-category">Reviews</span>
+                    </figure>
+                    <article class="blog-body">
+                        <time datetime="2026-03-10">10 Mar 2026</time>
+                        <h3>Review: ¿Valen la pena los auriculares ANC?</h3>
+                        <p>Probamos los mejores modelos del mercado y te contamos cuál elegir según tu presupuesto.</p>
+                        <a href="#" class="blog-link">Leer más <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                </li>
+                <li class="blog-card">
+                    <figure class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400" 
+                             alt="Smartwatch con métricas de salud" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Smartwatches y salud</figcaption>
+                        <span class="blog-category">Salud</span>
+                    </figure>
+                    <article class="blog-body">
+                        <time datetime="2026-03-05">5 Mar 2026</time>
+                        <h3>Cómo un smartwatch puede mejorar tu salud</h3>
+                        <p>Monitorización cardiaca, sueño y actividad: todo lo que debes saber antes de comprar.</p>
+                        <a href="#" class="blog-link">Leer más <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SECTION 7: FAQ                            -->
+        <!-- ======================================== -->
+        <section class="faq" aria-labelledby="faq-title">
+            <header class="section-header">
+                <p class="section-tag">FAQ</p>
+                <h2 id="faq-title">Preguntas <span>frecuentes</span></h2>
+            </header>
+
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Cuánto tarda el envío?
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>El envío estándar tarda entre 3 y 5 días hábiles. También ofrecemos envío express en 24-48h en ciudades principales.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Puedo devolver un producto?
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, tienes 30 días desde la recepción para devolver cualquier producto sin usar y en su embalaje original.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Qué métodos de pago aceptan?
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Aceptamos Visa, Mastercard, PayPal, American Express y transferencia bancaria. Todos los pagos están protegidos con encriptación SSL.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Los productos tienen garantía?
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Todos nuestros productos incluyen garantía de 1 año del fabricante. Algunos artículos premium tienen garantía extendida de 2 años.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SECTION 8: CONTACTO                     -->
+        <!-- ======================================== -->
+        <section id="contacto" class="contact" aria-labelledby="contact-title">
+            <header class="section-header">
+                <p class="section-tag">Contacto</p>
+                <h2 id="contact-title">¿Necesitas <span>ayuda?</span></h2>
+                <p>Estamos aquí para resolver tus dudas</p>
+            </header>
+
+            <div class="contact-container">
+                <ul class="contact-info">
+                    <li>
+                        <span class="contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
+                        <div>
+                            <strong>Dirección</strong>
+                            <p>Calle Tech 123, Madrid, España</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></span>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <p>+34 900 123 456</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+                        <div>
+                            <strong>Email</strong>
+                            <p>hola@techstore.com</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></span>
+                        <div>
+                            <strong>Horario</strong>
+                            <p>Lun - Vie: 9:00 - 20:00</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <form class="contact-form" action="#" method="POST">
+                    <p class="form-row">
+                        <label for="contact-name">Nombre</label>
+                        <input type="text" id="contact-name" placeholder="Tu nombre" required>
+                    </p>
+                    <p class="form-row">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" placeholder="tu@email.com" required>
+                    </p>
+                    <p class="form-row">
+                        <label for="contact-message">Mensaje</label>
+                        <textarea id="contact-message" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                    </p>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar mensaje
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SECTION 9: NEWSLETTER                   -->
         <!-- ======================================== -->
         <section class="newsletter" aria-labelledby="newsletter-title">
             <article class="newsletter-container">
@@ -465,7 +689,7 @@
             <li class="footer-links">
                 <h4>Atención al cliente</h4>
                 <ul>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#">Política de envío</a></li>
                     <li><a href="#">Devoluciones</a></li>
                     <li><a href="#">Preguntas frecuentes</a></li>
@@ -498,17 +722,146 @@
         </p>
     </footer>
 
+    <!-- Modal de búsqueda -->
+    <dialog class="search-modal" aria-label="Buscar productos">
+        <form class="search-form" method="dialog">
+            <label for="search-input" class="sr-only">Buscar productos</label>
+            <input type="search" id="search-input" placeholder="Buscar productos..." autofocus>
+            <button type="submit" aria-label="Buscar">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="search-close" aria-label="Cerrar búsqueda">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </form>
+    </dialog>
+
+    <!-- Toast de carrito -->
+    <aside class="cart-toast" role="status" aria-live="polite" hidden>
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        <span>Producto añadido al carrito</span>
+    </aside>
+
+    <!-- Botón volver arriba -->
+    <button class="back-to-top" aria-label="Volver arriba" hidden>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
     <!-- ========================================== -->
-    <!-- SCRIPT para menú móvil                     -->
+    <!-- SCRIPTS                                    -->
     <!-- ========================================== -->
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
-        
+        const header = document.querySelector('.main-header');
+        const backToTop = document.querySelector('.back-to-top');
+        const searchBtn = document.querySelector('.search-btn');
+        const searchModal = document.querySelector('.search-modal');
+        const searchClose = document.querySelector('.search-close');
+        const cartBadge = document.querySelector('.cart-badge');
+        const cartToast = document.querySelector('.cart-toast');
+        let cartCount = parseInt(cartBadge.textContent) || 0;
+
+        // Menú móvil
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('open');
-            const expanded = navMenu.classList.contains('open');
-            hamburger.setAttribute('aria-expanded', expanded);
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+        });
+
+        // Header al hacer scroll
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+            backToTop.hidden = window.scrollY < 400;
+        });
+
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Búsqueda
+        searchBtn.addEventListener('click', () => searchModal.showModal());
+        searchClose.addEventListener('click', () => searchModal.close());
+
+        // Filtros de productos
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.product-card').forEach(card => {
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.style.display = show ? '' : 'none';
+                    if (show) card.classList.add('fade-in');
+                });
+            });
+        });
+
+        // Añadir al carrito
+        document.querySelectorAll('.btn-add-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                cartCount++;
+                cartBadge.textContent = cartCount;
+                cartToast.hidden = false;
+                cartToast.classList.add('show');
+                setTimeout(() => {
+                    cartToast.classList.remove('show');
+                    setTimeout(() => { cartToast.hidden = true; }, 300);
+                }, 2500);
+            });
+        });
+
+        // FAQ acordeón
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // Countdown oferta flash (hasta medianoche)
+        function updateCountdown() {
+            const now = new Date();
+            const midnight = new Date();
+            midnight.setHours(24, 0, 0, 0);
+            const diff = midnight - now;
+            const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+            const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+            const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+            document.getElementById('countdown-hours').textContent = h;
+            document.getElementById('countdown-minutes').textContent = m;
+            document.getElementById('countdown-seconds').textContent = s;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Animaciones al scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.benefit-card, .product-card, .testimonial-card, .blog-card, .faq-item').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+
+        // Nav activo según sección
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (window.scrollY >= section.offsetTop - 100) current = section.id;
+            });
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+            });
         });
     </script>
 
