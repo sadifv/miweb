@@ -654,6 +654,13 @@ ul, ol {
     overflow: hidden;
 }
 
+.product-description {
+    color: var(--color-gray-500);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
 .product-rating {
     display: flex;
     align-items: center;
