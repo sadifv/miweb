@@ -1,16 +1,16 @@
-# TechStore — Gadgets del Futuro
+# TechStore — Lo Ùltimo en Tecnologìa *
 
-Landing page de e-commerce para una tienda de gadgets tecnológicos. Proyecto web estático construido con **HTML semántico**, **CSS moderno** y **JavaScript vanilla**.
+Landing page de e-commerce para una tienda de accesorios tecnológicos. Proyecto web estático construido con **HTML semántico**, **CSS moderno** y **JavaScript vanilla**.
 
 ---
 
-## Descripción
+## Descripción *
 
 TechStore es una página de presentación tipo tienda online que incluye catálogo de productos, ofertas flash, blog, testimonios, FAQ, formulario de contacto y newsletter. Está pensada como frontend estático, sin backend ni base de datos.
 
 ---
 
-## Tecnologías
+## Tecnologías *
 
 | Tecnología | Uso |
 |------------|-----|
@@ -22,7 +22,7 @@ TechStore es una página de presentación tipo tienda online que incluye catálo
 
 ---
 
-## Estructura del proyecto
+## Estructura del proyecto *
 
 ```
 miweb/
@@ -51,7 +51,7 @@ miweb/
 
 ---
 
-## Secciones de la página
+## Secciones de la página *
 
 | Sección | ID | Descripción |
 |---------|-----|-------------|
@@ -142,8 +142,8 @@ Luego visita `http://localhost:8000`.
 
 ## Próximos pasos posibles
 
-- [ ] Organizar CSS/JS en subcarpetas (`css/`, `js/`)
-- [ ] Localizar Font Awesome y Google Fonts
+- [ ] Organizar CSS/JS en subcarpetas (`css/`, `js/`) **Listo**
+- [ ] Localizar Font Awesome y Google Fonts **Listo**
 - [ ] Modo oscuro
 - [ ] Carrito lateral desplegable
 - [ ] Backend para formularios y pagos reales
@@ -153,4 +153,4 @@ Luego visita `http://localhost:8000`.
 
 ## Licencia
 
-Proyecto personal/educativo. Las imágenes en `assets/` provienen de fuentes externas (Unsplash, randomuser.me) y se usan con fines de demostración.
+Proyecto educativo. Las imágenes en `assets/` provienen de fuentes externas (Unsplash, randomuser.me) y se usan con fines de demostración.
