@@ -10,12 +10,14 @@ const cartToast = document.querySelector('.cart-toast');
 let cartCount = parseInt(cartBadge.textContent) || 0;
 
 // Menú móvil
+
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('open');
     hamburger.setAttribute('aria-expanded', navMenu.classList.contains('open'));
 });
 
 // Header al hacer scroll
+
 window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 50);
     backToTop.hidden = window.scrollY < 400;
@@ -24,10 +26,12 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 // Búsqueda
+
 searchBtn.addEventListener('click', () => searchModal.showModal());
 searchClose.addEventListener('click', () => searchModal.close());
 
 // Filtros de productos
+
 document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -42,6 +46,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 // Añadir al carrito
+
 document.querySelectorAll('.btn-add-cart').forEach(btn => {
     btn.addEventListener('click', () => {
         cartCount++;
@@ -56,6 +61,7 @@ document.querySelectorAll('.btn-add-cart').forEach(btn => {
 });
 
 // FAQ acordeón
+
 document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
         const item = btn.parentElement;
@@ -72,6 +78,7 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 });
 
 // Countdown oferta flash (hasta medianoche)
+
 function updateCountdown() {
     const now = new Date();
     const midnight = new Date();
@@ -88,6 +95,7 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 // Animaciones al scroll
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -100,6 +108,7 @@ document.querySelectorAll('.benefit-card, .product-card, .testimonial-card, .blo
 });
 
 // Nav activo según sección
+
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
     let current = '';
