@@ -22,11 +22,12 @@ TechStore es una página de presentación tipo tienda online que incluye catálo
 
 ---
 
-## Estructura del proyecto *
+## Estructura del proyecto 
 
 ```
+```filetree
 miweb/
-├── assets/                  # Imágenes locales (15 archivos)
+├── assets/                  # Assets gráficos del proyecto (imágenes de catálogo, testimonios, blog)
 │   ├── hero-gadgets.jpg
 │   ├── product-smartwatch.webp
 │   ├── product-headphones.jpg
@@ -42,115 +43,137 @@ miweb/
 │   ├── blog-headphones.jpg
 │   ├── blog-smartwatch.jpg
 │   └── newsletter.jpg
-├── index.html               # Página principal
-├── style.css                # Estilos globales y componentes
-├── main.js                  # Lógica e interactividad
+├── index.html               # Documento principal HTML5
+├── style.css                # Hoja de estilos globales y diseño responsive
+├── main.js                  # Lógica del cliente e interactividad DOM
 ├── .gitignore
-└── README.md
+└── README.md                # Documentación del proyecto
 ```
 
 ---
 
-## Secciones de la página *
+## Secciones de la página 
 
-| Sección | ID | Descripción |
-|---------|-----|-------------|
-| Header | — | Navegación sticky con glassmorphism, búsqueda, carrito y menú móvil |
-| Hero | `#inicio` | Banner principal con CTA, estadísticas y tarjetas flotantes |
-| Beneficios | — | Envío, devoluciones, pago seguro y soporte 24/7 |
-| Marcas | — | Carrusel infinito de marcas asociadas |
-| Productos | `#productos` | Catálogo con filtros por categoría (Gadgets, Audio, Accesorios) |
-| Ofertas Flash | `#ofertas` | Banner promocional con cuenta regresiva hasta medianoche |
-| Testimonios | — | Reseñas de clientes verificados |
-| Blog | `#blog` | Artículos recientes con categorías |
-| FAQ | — | Preguntas frecuentes en acordeón |
-| Contacto | `#contacto` | Información de contacto y formulario |
-| Newsletter | — | Suscripción con descuento del 10% |
-| Footer | — | Enlaces, redes sociales y métodos de pago |
+Header  —  Navegación fija (sticky) con efecto glassmorphism, acceso a modal de búsqueda, carrito dinámico y menú desplegable en móviles.
+Hero  #inicio  _  Banner principal de impacto con llamadas a la acción (CTA), estadísticas clave y tarjetas flotantes animadas.
+Beneficios  —  Tarjetas informativas de servicios: Envíos rápidos, devoluciones, compras seguras y soporte.
+Marcas  —  Carrusel continuo (marquee) con firmas y marcas aliadas.
+Productos  #productos  _  Catálogo interactivo con filtrado por categorías (Gadgets, Audio, Accesorios).
+Ofertas Flash  #ofertas  _  Promoción relámpago con temporizador (countdown) dinámico hasta medianoche.
+Testimonios  —  Módulo de prueba social con reseñas y puntuaciones de compradores verificados.
+Blog  #blog  _  Artículos de interés técnico, reviews de productos y tendencias tecnológicas.
+FAQ  —  Acordeón interactivo para la resolución de preguntas frecuentes.
+Contacto  #contacto  _  Datos de la tienda y formulario directo para el cliente.
+Newsletter  —  Captura de suscriptores para ofertas especiales.
+Footer  —  Mapa del sitio, canales sociales, avisos legales y pasarelas de pago aceptadas.
 
 ---
 
 ## Funcionalidades JavaScript (`main.js`)
 
-- **Menú móvil** — Hamburguesa con toggle y `aria-expanded`
-- **Header al scroll** — Sombra y fondo al bajar la página
-- **Botón volver arriba** — Aparece tras 400px de scroll
-- **Modal de búsqueda** — `<dialog>` nativo al pulsar la lupa
-- **Filtros de productos** — Filtrado por categoría con animación fade-in
-- **Carrito** — Contador dinámico + toast de confirmación
-- **FAQ acordeón** — Una pregunta abierta a la vez
-- **Countdown** — Temporizador de oferta flash hasta medianoche
-- **Scroll reveal** — Animaciones al entrar elementos en viewport (`IntersectionObserver`)
-- **Nav activo** — Resalta el enlace de la sección visible
+*Navegación Móvil: Menú tipo hamburguesa con alternancia de estado y actualización del atributo aria-expanded.*
 
+Efectos de Scroll:
+
+Detección de desplazamiento en la cabecera (.main-header.scrolled).
+
+Botón flotante "Volver arriba" (.back-to-top) visible automáticamente tras 400px de scroll.
+
+Indicador de sección activa en la barra de navegación (Scrollspy).
+
+*Animaciones al Vista (Scroll Reveal): Carga progresiva de componentes mediante IntersectionObserver.*
+
+Modal de Búsqueda: Manejo de diálogos nativos HTML5 con showModal() y close().
+
+Filtro de Catálogo: Filtrado interactivo de productos según categorías con animaciones fade-in.
+
+Simulación de Carrito: Contador global dinámico e integración de notificaciones Toast con confirmación al usuario.
+
+Acordeón FAQ: Colapso dinámico asegurando la apertura de una única respuesta en simultáneo.
+
+Reloj de Cuenta Regresiva: Cálculo exacto del tiempo restante hasta el final del día en tiempo real.
 ---
 
-## Cómo ejecutar el proyecto
+## Cómo ejecutar el proyecto *
 
-No requiere instalación de dependencias. Opciones:
+*1. Clonar el repositorio*
 
-### Opción 1 — Abrir directamente
+git clone [https://github.com/tu-usuario/techstore.git](https://github.com/tu-usuario/techstore.git)
+cd techstore
 
-Abre `index.html` en tu navegador (doble clic o arrastrar al navegador).
+*2. Abrir en el navegador*
 
-### Opción 2 — Servidor local (recomendado)
+Opción A (Rápida): Haz doble clic en el archivo index.html o arrástralo a tu navegador de preferencia.
+
+Opción B (Servidor Local Recomendado):
+
+Con VS Code: Utiliza la extensión Live Server.
 
 Con Python:
 
-```bash
+Bash
 python -m http.server 8000
-```
+Con Node.js:
 
-Con Node.js (npx):
-
-```bash
+Bash
 npx serve .
-```
-
-Luego visita `http://localhost:8000`.
+Visita http://localhost:8000 en tu navegador.
 
 ---
 
 ## Diseño y CSS
 
-- **Variables CSS** para colores, espaciado, sombras y transiciones
-- **Paleta**: índigo (`#6366f1`) como primario, ámbar (`#f59e0b`) como secundario
-- **Responsive**: breakpoints en 1024px, 768px y 480px
-- **Accesibilidad**: clase `.sr-only`, `prefers-reduced-motion`, etiquetas ARIA
-- **Efectos**: glassmorphism, gradientes, hover en tarjetas, marquee de marcas
+Variables CSS (:root): Control unificado de la paleta de colores, tipografías, espaciados y sombras del proyecto.
+
+*Paleta de Colores:*
+
+Primario: Índigo (#6366f1) y variantes para estados hover.
+
+Secundario / Acento: Ámbar (#f59e0b) y Rosa Acento (#ec4899).
+
+Fondos / Oscuros: Azul Noche (#0f172a / #1e293b).
+
+*Breakpoints Responsivos:*
+
+1024px: Dispositivos medianos y laptops.
+
+768px: Tablets y teléfonos en orientación horizontal (activación de menú hamburguesa).
+
+480px: Teléfonos inteligentes pequeños.
 
 ---
 
-## Historial de cambios
+## Historial de cambios 
 
 ### Mejoras iniciales
-- Secciones nuevas: Ofertas Flash, Blog, FAQ y Contacto
-- Carrusel de marcas y filtros de productos por categoría
-- Modal de búsqueda, toast de carrito y botón volver arriba
-- Animaciones al scroll y navegación activa por sección
-- Corrección de typo en testimonios ("Comprador verificado")
-
-### Refactor JavaScript
-- Todo el JavaScript inline se movió de `index.html` a `main.js`
-- El HTML referencia el script con `<script src="main.js" defer></script>`
+- Creaciòn de la estructura de la pàgina web.
+- Estilos.
+- Refactorización de Código: Separación de scripts inline hacia un archivo independiente main.js importado con carga diferida (defer).
+- Componentes UI: Incorporación de modal de búsqueda nativo (<dialog>), alertas flotantes (Toasts) y temporizador de ofertas.
+- Animaciones al scroll y navegación activa por sección.
+- Corrección de tipo en testimonios ("Comprador verificado").
 
 ### Assets locales
-- Las 15 imágenes externas (Unsplash, randomuser.me, MercadoLibre) se descargaron a `assets/`
-- Todas las rutas en `index.html` apuntan ahora a `assets/` en lugar de URLs externas
+- Las 15 imágenes externas (Unsplash, randomuser.me, MercadoLibre) se descargaron a `assets/`.
+- Todas las rutas en `index.html` apuntan ahora a `assets/` en lugar de URLs externas.
 
 ---
 
 ## Próximos pasos posibles
 
-- [ ] Organizar CSS/JS en subcarpetas (`css/`, `js/`) **Listo**
-- [ ] Localizar Font Awesome y Google Fonts **Listo**
-- [ ] Modo oscuro
-- [ ] Carrito lateral desplegable
-- [ ] Backend para formularios y pagos reales
-- [ ] Despliegue en GitHub Pages, Netlify o Vercel
+[ ] Implementación de panel lateral interactivo para el carrito de compras (Slide-over Cart Drawer).
 
+[ ] Incorporación de un botón toggle para Modo Oscuro / Modo Claro guardado en localStorage.
+
+[ ] Filtrado de productos por rango de precio y barra de búsqueda en tiempo real.
+
+[ ] Persistencia del carrito de compras usando la API localStorage.
+
+[ ] Integración directa para pedidos vía WhatsApp.
+
+[ ] Despliegue en plataforma de hosting estático (Vercel / Netlify / GitHub Pages).
 ---
 
 ## Licencia
 
-Proyecto educativo. Las imágenes en `assets/` provienen de fuentes externas (Unsplash, randomuser.me) y se usan con fines de demostración.
+Este es un proyecto con fines educativos e ilustrativos. Las imágenes utilizadas pertenecen a sus respectivos autores en Unsplash y RandomUser, empleadas bajo sus licencias públicas de uso libre.
