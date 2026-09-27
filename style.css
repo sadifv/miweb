@@ -1248,6 +1248,7 @@ ul, ol {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
+    position: relative;
 }
 
 .quickview-image {
