@@ -729,7 +729,7 @@
     <dialog class="search-modal" aria-label="Buscar productos">
         <form class="search-form" method="dialog">
             <label for="search-input" class="sr-only">Buscar productos</label>
-            <input type="search" id="search-input" placeholder="Buscar productos..." autofocus>
+            <input type="search" id="search-input" placeholder="Buscar productos..." autocomplete="off">
             <button type="submit" aria-label="Buscar">
                 <i class="fas fa-search" aria-hidden="true"></i>
             </button>
@@ -737,6 +737,7 @@
                 <i class="fas fa-times" aria-hidden="true"></i>
             </button>
         </form>
+        <div class="search-results" aria-live="polite"></div>
     </dialog>
 
     <!-- Toast de carrito -->
