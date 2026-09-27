@@ -236,10 +236,12 @@ document.querySelectorAll('.benefit-card, .product-card, .testimonial-card, .blo
 // Nav activo según sección
 
 const sections = document.querySelectorAll('section[id]');
+const headerHeight = header.offsetHeight || 72;
+
 window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 100) current = section.id;
+        if (window.scrollY >= section.offsetTop - headerHeight - 20) current = section.id;
     });
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
