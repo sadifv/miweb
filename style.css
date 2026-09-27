@@ -1234,6 +1234,9 @@ ul, ol {
     max-width: 800px;
     width: 90%;
     box-shadow: var(--shadow-xl);
+    position: fixed;
+    inset: 0;
+    margin: auto;
 }
 
 .quickview-modal::backdrop {
