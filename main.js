@@ -27,8 +27,68 @@ backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 's
 
 // Búsqueda
 
-searchBtn.addEventListener('click', () => searchModal.showModal());
-searchClose.addEventListener('click', () => searchModal.close());
+const searchInput = document.getElementById('search-input');
+const searchResults = document.querySelector('.search-results');
+
+const products = Array.from(document.querySelectorAll('.product-card')).map(card => ({
+    name: card.querySelector('h3')?.textContent?.trim() || '',
+    description: card.querySelector('.product-description')?.textContent?.trim() || '',
+    category: card.dataset.category || '',
+    price: card.querySelector('.new-price')?.textContent?.trim() || '',
+    image: card.querySelector('.product-image img')?.getAttribute('src') || '',
+    card: card
+}));
+
+function renderSearchResults(query) {
+    const q = query.toLowerCase().trim();
+    if (!q) {
+        searchResults.innerHTML = '';
+        return;
+    }
+    const matches = products.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q)
+    );
+    if (matches.length === 0) {
+        searchResults.innerHTML = '<p class="search-no-results">No se encontraron productos</p>';
+        return;
+    }
+    searchResults.innerHTML = matches.map(p => `
+        <a href="#productos" class="search-result-item" data-target="${p.card.dataset.category}">
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+            <div class="search-result-info">
+                <strong>${p.name}</strong>
+                <span>${p.price}</span>
+            </div>
+        </a>
+    `).join('');
+    searchResults.querySelectorAll('.search-result-item').forEach(item => {
+        item.addEventListener('click', () => {
+            searchModal.close();
+            searchInput.value = '';
+            searchResults.innerHTML = '';
+        });
+    });
+}
+
+searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
+
+searchBtn.addEventListener('click', () => {
+    searchModal.showModal();
+    setTimeout(() => searchInput.focus(), 50);
+});
+
+searchClose.addEventListener('click', () => {
+    searchModal.close();
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+});
+
+searchModal.addEventListener('close', () => {
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+});
 
 // Filtros de productos
 
