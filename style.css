@@ -1180,7 +1180,7 @@ ul, ol {
     width: 90%;
     box-shadow: var(--shadow-xl);
     position: fixed;
-    top: 20%;
+    inset: 0;
     margin: auto;
 }
 
