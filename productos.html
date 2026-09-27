@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo completo de productos tecnológicos - TechStore">
+    <title>Catálogo de Productos - TechStore</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- HEADER - Barra de navegación sticky -->
+
+    <header class="main-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Navegación principal">
+                <p class="logo">
+                <a href="index.html" aria-label="TechStore - Inicio">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </a>
+            </p>
+            
+             <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="index.html#inicio" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="#productos" role="menuitem">Productos</a></li>
+                <li role="none"><a href="index.html#ofertas" role="menuitem">Ofertas</a></li>
+                <li role="none"><a href="index.html#blog" role="menuitem">Blog</a></li>
+                <li role="none"><a href="index.html#contacto" role="menuitem">Contacto</a></li>
+            </ul>
+            
+            <ul class="nav-actions">
+                <li>
+                    <button class="search-btn" aria-label="Buscar productos">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="user-btn" aria-label="Mi cuenta">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="cart-btn" aria-label="Carrito de compras">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="cart-badge" aria-label="3 productos en el carrito">3</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="hamburger" aria-label="Menú móvil" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN - Contenido principal -->
+
+    <main role="main">
+        
+        <!-- SECTION: CATÁLOGO COMPLETO -->
+
+        <section id="productos" class="products" aria-labelledby="products-title">
+            <header class="section-header">
+                <p class="section-tag">Catálogo</p>
+                <h2 id="products-title">Todos los <span>Productos</span></h2>
+                <p>Explora nuestra colección completa de tecnología</p>
+            </header>
+
+            <nav class="product-filters" aria-label="Filtrar productos por categoría">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="gadgets">Dispositivos</button>
+                <button class="filter-btn" data-filter="audio">Audio</button>
+                <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+            </nav>
+
+            <ul class="products-grid">
+
+                <!-- Producto 1 -->
+
+                <li class="product-card" data-category="gadgets">
+                    <figure class="product-image">
+                        <img src="assets/product-smartwatch.webp" 
+                             alt="Smartwatch con monitor cardiaco" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Smartwatch Pro X1 con Monitor Cardiaco</figcaption>
+                        <span class="product-badge">-30%</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Smartwatch Pro X1 con Monitor Cardiaco</h3>
+                        <p class="product-description">Controla ritmo cardíaco, GPS y notificaciones durante todo el día con hasta 10 días de batería.</p>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                            <span class="reviews">(124 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$129.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$89.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="1">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 2 -->
+
+                <li class="product-card" data-category="audio">
+                    <figure class="product-image">
+                        <img src="assets/product-headphones.jpg" 
+                             alt="Auriculares inalámbricos" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Auriculares Bluetooth 5.3 Noise Cancelling</figcaption>
+                        <span class="product-badge">Nuevo</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Auriculares Bluetooth 5.3 Noise Cancelling</h3>
+                        <p class="product-description">Sonido nítido con cancelación activa de ruido, ajuste cómodo y hasta 30 horas de reproducción continua.</p>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="4 estrellas">★★★★☆</span>
+                            <span class="reviews">(89 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="new-price" aria-label="Precio">$59.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="2">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 3 -->
+
+                <li class="product-card" data-category="accesorios">
+                    <figure class="product-image">
+                        <img src="assets/product-camera.jpg" 
+                             alt="Cámara instantánea" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Cámara Instantánea con Impresión Incluida</figcaption>
+                        <span class="product-badge">-20%</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Cámara Instantánea con Impresión Incluida</h3>
+                        <p class="product-description">Captura y imprime fotos al instante con diseño compacto, flash integrado y filtros creativos.</p>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                            <span class="reviews">(67 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$79.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$63.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="3">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 4 -->
+
+                <li class="product-card" data-category="gadgets">
+                    <figure class="product-image">
+                        <img src="assets/product-shoes.jpg" 
+                             alt="Zapatillas inteligentes" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Zapatillas Inteligentes con GPS Integrado</figcaption>
+                        <span class="product-badge">Oferta</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Zapatillas Inteligentes con GPS Integrado</h3>
+                        <p class="product-description">Entrena con seguimiento de ruta, cálculo de calorías y alertas en tiempo real para mayor comodidad deportiva.</p>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="4 estrellas">★★★★☆</span>
+                            <span class="reviews">(43 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$149.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$119.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="4">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 5 -->
+
+                <li class="product-card" data-category="audio">
+                    <figure class="product-image">
+                        <img src="assets/product-speaker.jpg" 
+                             alt="Altavoz portátil" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Altavoz Portátil con Luces LED</figcaption>
+                        <span class="product-badge">-15%</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Altavoz Portátil con Luces LED</h3>
+                        <p class="product-description">Lleva tu música a cualquier lugar con un diseño resistente, luces RGB y conexión Bluetooth de largo alcance.</p>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                            <span class="reviews">(205 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$45.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$38.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="5">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+                <!-- Producto 6 -->
+
+                <li class="product-card" data-category="accesorios">
+                    <figure class="product-image">
+                        <img src="assets/product-watch.jpg" 
+                             alt="Reloj inteligente" 
+                             loading="lazy">
+                        <figcaption class="sr-only">Reloj Inteligente Serie 8 con Esfera OLED</figcaption>
+                        <span class="product-badge">Top</span>
+                        <button class="quick-view" aria-label="Vista rápida del producto">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </figure>
+                    <article class="product-body">
+                        <h3>Reloj Inteligente Serie 8 con Esfera OLED</h3>
+                        <p class="product-description">Sigue tu actividad diaria, sueño y rendimiento con pantalla OLED y alertas inteligentes para llamadas y apps.</p>
+                        <p class="product-rating">
+                            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                            <span class="reviews">(312 reseñas)</span>
+                        </p>
+                        <p class="product-price">
+                            <span class="old-price" aria-label="Precio original">$199.99</span>
+                            <span class="new-price" aria-label="Precio de oferta">$159.99</span>
+                        </p>
+                        <button class="btn-add-cart" data-product-id="6">
+                            <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                        </button>
+                    </article>
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER - Pie de página -->
+
+    <footer class="main-footer" role="contentinfo">
+        <ul class="footer-grid">
+            
+            <!-- Columna 1: Marca -->
+
+            <li class="footer-brand">
+                <p class="logo">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </p>
+                <p>Tu tienda de tecnología favorita. Calidad, innovación y los mejores precios.</p>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 2: Enlaces rápidos -->
+
+            <li class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#productos">Productos</a></li>
+                    <li><a href="index.html#ofertas">Ofertas</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 3: Atención al cliente -->
+
+            <li class="footer-links">
+                <h4>Atención al cliente</h4>
+                <ul>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#">Política de envío</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 4: Legal -->
+
+            <li class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de cookies</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <hr class="footer-divider">
+
+        <p class="footer-bottom">
+            <span>&copy; 2026 TechStore. Todos los derechos reservados.</span>
+            <span class="payment-methods">
+                <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+                <i class="fab fa-cc-amex" aria-label="American Express"></i>
+            </span>
+        </p>
+    </footer>
+
+    <!-- Modal de búsqueda -->
+
+    <dialog class="search-modal" aria-label="Buscar productos">
+        <form class="search-form" method="dialog">
+            <label for="search-input" class="sr-only">Buscar productos</label>
+            <input type="search" id="search-input" placeholder="Buscar productos..." autocomplete="off">
+            <button type="submit" aria-label="Buscar">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="search-close" aria-label="Cerrar búsqueda">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </form>
+        <div class="search-results" aria-live="polite"></div>
+    </dialog>
+
+    <!-- Modal de vista rápida -->
+
+    <dialog class="quickview-modal" aria-labelledby="quickview-title">
+        <article class="quickview-content">
+            <button type="button" class="quickview-close" aria-label="Cerrar vista rápida">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <figure class="quickview-image">
+                <img id="quickview-img" src="" alt="">
+            </figure>
+            <article class="quickview-info">
+                <p class="quickview-category" id="quickview-category"></p>
+                <h3 id="quickview-title"></h3>
+                <p class="quickview-rating">
+                    <span class="stars" id="quickview-stars"></span>
+                    <span id="quickview-reviews"></span>
+                </p>
+                <p class="quickview-description" id="quickview-description"></p>
+                <p class="quickview-price">
+                    <span class="old-price" id="quickview-old-price"></span>
+                    <span class="new-price" id="quickview-new-price"></span>
+                </p>
+                <button class="btn-add-cart" id="quickview-add-cart">
+                    <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                </button>
+            </article>
+        </article>
+    </dialog>
+
+    <!-- Toast de carrito -->
+
+    <aside class="cart-toast" role="status" aria-live="polite" hidden>
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        <span>Producto añadido al carrito</span>
+    </aside>
+
+    <!-- Botón volver arriba -->
+
+    <button class="back-to-top" aria-label="Volver arriba" hidden>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="main.js" defer></script>
+
+</body>
+</html>

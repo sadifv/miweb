@@ -100,6 +100,12 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
         document.querySelectorAll('.product-card').forEach(card => {
             const show = filter === 'all' || card.dataset.category === filter;
             card.style.display = show ? '' : 'none';
+            card.classList.remove('fade-in');
+        });
+        // Forzar reflow para reiniciar la animación
+        void document.querySelector('.products-grid').offsetWidth;
+        document.querySelectorAll('.product-card').forEach(card => {
+            const show = filter === 'all' || card.dataset.category === filter;
             if (show) card.classList.add('fade-in');
         });
     });
