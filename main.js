@@ -120,6 +120,72 @@ document.querySelectorAll('.btn-add-cart').forEach(btn => {
     });
 });
 
+// Vista rápida de producto
+
+const quickviewModal = document.querySelector('.quickview-modal');
+const quickviewImg = document.getElementById('quickview-img');
+const quickviewCategory = document.getElementById('quickview-category');
+const quickviewTitle = document.getElementById('quickview-title');
+const quickviewStars = document.getElementById('quickview-stars');
+const quickviewReviews = document.getElementById('quickview-reviews');
+const quickviewDescription = document.getElementById('quickview-description');
+const quickviewOldPrice = document.getElementById('quickview-old-price');
+const quickviewNewPrice = document.getElementById('quickview-new-price');
+const quickviewAddCart = document.getElementById('quickview-add-cart');
+const quickviewClose = document.querySelector('.quickview-close');
+
+const categoryLabels = {
+    gadgets: 'Dispositivos',
+    audio: 'Audio',
+    accesorios: 'Accesorios'
+};
+
+function openQuickView(card) {
+    const name = card.querySelector('h3')?.textContent?.trim() || '';
+    const description = card.querySelector('.product-description')?.textContent?.trim() || '';
+    const category = card.dataset.category || '';
+    const price = card.querySelector('.new-price')?.textContent?.trim() || '';
+    const oldPrice = card.querySelector('.old-price')?.textContent?.trim() || '';
+    const image = card.querySelector('.product-image img')?.getAttribute('src') || '';
+    const stars = card.querySelector('.stars')?.textContent?.trim() || '';
+    const reviews = card.querySelector('.reviews')?.textContent?.trim() || '';
+
+    quickviewImg.src = image;
+    quickviewImg.alt = name;
+    quickviewCategory.textContent = categoryLabels[category] || category;
+    quickviewTitle.textContent = name;
+    quickviewStars.textContent = stars;
+    quickviewStars.setAttribute('aria-label', stars);
+    quickviewReviews.textContent = reviews;
+    quickviewDescription.textContent = description;
+    quickviewOldPrice.textContent = oldPrice;
+    quickviewOldPrice.style.display = oldPrice ? '' : 'none';
+    quickviewNewPrice.textContent = price;
+
+    quickviewAddCart.onclick = () => {
+        cartCount++;
+        cartBadge.textContent = cartCount;
+        cartToast.hidden = false;
+        cartToast.classList.add('show');
+        setTimeout(() => {
+            cartToast.classList.remove('show');
+            setTimeout(() => { cartToast.hidden = true; }, 300);
+        }, 2500);
+        quickviewModal.close();
+    };
+
+    quickviewModal.showModal();
+}
+
+document.querySelectorAll('.quick-view').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const card = btn.closest('.product-card');
+        if (card) openQuickView(card);
+    });
+});
+
+quickviewClose.addEventListener('click', () => quickviewModal.close());
+
 // FAQ acordeón
 
 document.querySelectorAll('.faq-question').forEach(btn => {

@@ -724,6 +724,35 @@
         </p>
     </footer>
 
+    <!-- Modal de vista rápida -->
+
+    <dialog class="quickview-modal" aria-labelledby="quickview-title">
+        <article class="quickview-content">
+            <figure class="quickview-image">
+                <img id="quickview-img" src="" alt="">
+                <button type="button" class="quickview-close" aria-label="Cerrar vista rápida">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </figure>
+            <article class="quickview-info">
+                <p class="quickview-category" id="quickview-category"></p>
+                <h3 id="quickview-title"></h3>
+                <p class="quickview-rating">
+                    <span class="stars" id="quickview-stars"></span>
+                    <span id="quickview-reviews"></span>
+                </p>
+                <p class="quickview-description" id="quickview-description"></p>
+                <p class="quickview-price">
+                    <span class="old-price" id="quickview-old-price"></span>
+                    <span class="new-price" id="quickview-new-price"></span>
+                </p>
+                <button class="btn-add-cart" id="quickview-add-cart">
+                    <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                </button>
+            </article>
+        </article>
+    </dialog>
+
     <!-- Modal de búsqueda -->
 
     <dialog class="search-modal" aria-label="Buscar productos">
