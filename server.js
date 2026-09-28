@@ -26,7 +26,7 @@ app.use('/api/formularios', require('./routes/formularios'));
 
 // Endpoint GET /
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Servir archivos estáticos desde public/
