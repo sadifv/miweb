@@ -15,6 +15,32 @@ hamburger.addEventListener('click', () => {
     hamburger.setAttribute('aria-expanded', navMenu.classList.contains('open'));
 });
 
+// Modo oscuro
+const THEME_KEY = 'techstore_theme';
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = themeToggle?.querySelector('i');
+
+function setTheme(dark) {
+    document.documentElement.classList.toggle('dark-mode', dark);
+    if (themeIcon) {
+        themeIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light');
+}
+
+// Cargar tema guardado
+const savedTheme = localStorage.getItem(THEME_KEY);
+if (savedTheme === 'dark') {
+    setTheme(true);
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        setTheme(!isDark);
+    });
+}
+
 // Modal de cuenta
 const userBtn = document.querySelector('.user-btn');
 const accountModal = document.querySelector('.account-modal');
