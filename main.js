@@ -339,27 +339,97 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Formularios
+// Formularios con validación personalizada
+function showFieldError(input, message) {
+    const formRow = input.closest('.form-row') || input.closest('.form-group');
+    if (!formRow) return;
+    let error = formRow.querySelector('.form-error');
+    if (!error) {
+        error = document.createElement('small');
+        error.className = 'form-error';
+        formRow.appendChild(error);
+    }
+    error.textContent = message;
+    input.classList.add('input-error');
+}
+
+function clearFieldError(input) {
+    const formRow = input.closest('.form-row') || input.closest('.form-group');
+    if (!formRow) return;
+    const error = formRow.querySelector('.form-error');
+    if (error) error.remove();
+    input.classList.remove('input-error');
+}
+
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
+    const nameInput = contactForm.querySelector('#contact-name');
+    const emailInput = contactForm.querySelector('#contact-email');
+    const messageInput = contactForm.querySelector('#contact-message');
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (typeof showToast === 'function') {
-            showToast('¡Mensaje enviado! Te contactaremos pronto');
+        let isValid = true;
+
+        if (nameInput.value.trim().length < 3) {
+            showFieldError(nameInput, 'El nombre debe tener al menos 3 caracteres');
+            isValid = false;
+        } else {
+            clearFieldError(nameInput);
         }
-        contactForm.reset();
+
+        if (!validateEmail(emailInput.value.trim())) {
+            showFieldError(emailInput, 'Ingresa un email válido');
+            isValid = false;
+        } else {
+            clearFieldError(emailInput);
+        }
+
+        if (messageInput.value.trim().length < 10) {
+            showFieldError(messageInput, 'El mensaje debe tener al menos 10 caracteres');
+            isValid = false;
+        } else {
+            clearFieldError(messageInput);
+        }
+
+        if (isValid) {
+            if (typeof showToast === 'function') {
+                showToast('¡Mensaje enviado! Te contactaremos pronto');
+            }
+            contactForm.reset();
+        }
+    });
+
+    // Limpiar errores al escribir
+    [nameInput, emailInput, messageInput].forEach(input => {
+        input.addEventListener('input', () => clearFieldError(input));
     });
 }
 
 const newsletterForm = document.querySelector('.newsletter-form');
 if (newsletterForm) {
+    const emailInput = newsletterForm.querySelector('#email-input');
+
     newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        if (!validateEmail(emailInput.value.trim())) {
+            showFieldError(emailInput, 'Ingresa un email válido');
+            return;
+        }
+
+        clearFieldError(emailInput);
         if (typeof showToast === 'function') {
             showToast('¡Suscripción exitosa! Revisa tu email');
         }
         newsletterForm.reset();
     });
+
+    emailInput.addEventListener('input', () => clearFieldError(emailInput));
 }
 
 // Inicializar carrito al cargar

@@ -2076,6 +2076,18 @@ ul, ol {
     color: rgba(255, 255, 255, 0.4);
 }
 
+.form-error {
+    display: block;
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+.input-error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
 .newsletter-image img {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
