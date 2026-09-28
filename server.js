@@ -45,7 +45,7 @@ app.listen(PORT, () => {
 });
 
 // Conexión a MongoDB (no bloquea el servidor)
-const MONGODB_URI = 'mongodb+srv://jacobogarcesoguendo:aFJzVMGN3o7fA38A@cluster0.mqwbn.mongodb.net/';
+const MONGODB_URI = 'mongodb://jacobogarcesoguendo:aFJzVMGN3o7fA38A@89.192.46.28:27017,89.192.47.97:27017,89.192.47.94:27017/?ssl=true&replicaSet=atlas-xxx-shard-0&authSource=admin&retryWrites=true&w=majority';
 
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('✓ Conectado a MongoDB'))
