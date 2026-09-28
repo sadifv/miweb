@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
@@ -45,7 +46,7 @@ app.listen(PORT, () => {
 });
 
 // Conexión a MongoDB (no bloquea el servidor)
-const MONGODB_URI = 'mongodb://jacobogarcesoguendo:aFJzVMGN3o7fA38A@89.192.46.28:27017,89.192.47.97:27017,89.192.47.94:27017/?ssl=true&replicaSet=atlas-xxx-shard-0&authSource=admin&retryWrites=true&w=majority';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('✓ Conectado a MongoDB'))
