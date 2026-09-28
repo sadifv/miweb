@@ -7,7 +7,6 @@ const searchModal = document.querySelector('.search-modal');
 const searchClose = document.querySelector('.search-close');
 const cartBadge = document.querySelector('.cart-badge');
 const cartToast = document.querySelector('.cart-toast');
-let cartCount = parseInt(cartBadge.textContent) || 0;
 
 // Menú móvil
 
@@ -119,19 +118,210 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     });
 });
 
-// Añadir al carrito
+// Carrito de compras con localStorage
 
-document.querySelectorAll('.btn-add-cart').forEach(btn => {
-    btn.addEventListener('click', () => {
-        cartCount++;
-        cartBadge.textContent = cartCount;
-        cartToast.hidden = false;
-        cartToast.classList.add('show');
-        setTimeout(() => {
-            cartToast.classList.remove('show');
-            setTimeout(() => { cartToast.hidden = true; }, 300);
-        }, 2500);
-    });
+const CART_KEY = 'techstore_cart';
+
+function getCart() {
+    try {
+        return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    } catch {
+        return [];
+    }
+}
+
+function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateCartUI(cart);
+}
+
+function getProductData(id) {
+    const card = document.querySelector(`.product-card[data-category] .btn-add-cart[data-product-id="${id}"]`)?.closest('.product-card');
+    if (card) {
+        return {
+            id: id,
+            name: card.querySelector('h3')?.textContent?.trim() || 'Producto',
+            price: parseFloat(card.querySelector('.new-price')?.textContent?.replace(/[^0-9.]/g, '')) || 0,
+            image: card.querySelector('.product-image img')?.getAttribute('src') || ''
+        };
+    }
+    // Fallback para producto.html
+    const productsData = {
+        1: { name: 'Smartwatch Pro X1 con Monitor Cardiaco', price: 89.99, image: 'assets/product-smartwatch.webp' },
+        2: { name: 'Auriculares Bluetooth 5.3 Noise Cancelling', price: 59.99, image: 'assets/product-headphones.jpg' },
+        3: { name: 'Cámara Instantánea con Impresión Incluida', price: 63.99, image: 'assets/product-camera.jpg' },
+        4: { name: 'Zapatillas Inteligentes con GPS Integrado', price: 119.99, image: 'assets/product-shoes.jpg' },
+        5: { name: 'Altavoz Portátil con Luces LED', price: 38.99, image: 'assets/product-speaker.jpg' },
+        6: { name: 'Reloj Inteligente Serie 8 con Esfera OLED', price: 159.99, image: 'assets/product-watch.jpg' }
+    };
+    return productsData[id] ? { id, ...productsData[id] } : null;
+}
+
+function addToCart(productId, quantity = 1) {
+    const product = getProductData(productId);
+    if (!product) return;
+    const cart = getCart();
+    const existing = cart.find(item => item.id === productId);
+    if (existing) {
+        existing.quantity += quantity;
+    } else {
+        cart.push({ ...product, quantity });
+    }
+    saveCart(cart);
+    showToast('Producto añadido al carrito');
+}
+
+function removeFromCart(productId) {
+    const cart = getCart().filter(item => item.id !== productId);
+    saveCart(cart);
+}
+
+function updateQuantity(productId, quantity) {
+    const cart = getCart();
+    const item = cart.find(item => item.id === productId);
+    if (item) {
+        item.quantity = Math.max(1, quantity);
+        saveCart(cart);
+    }
+}
+
+function clearCart() {
+    localStorage.removeItem(CART_KEY);
+    updateCartUI([]);
+}
+
+function updateCartUI(cart) {
+    const itemsContainer = document.getElementById('cart-items');
+    const totalElement = document.getElementById('cart-total');
+    const badge = document.querySelector('.cart-badge');
+
+    if (!itemsContainer) return;
+
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    if (badge) badge.textContent = totalItems;
+    if (totalElement) totalElement.textContent = `$${totalPrice.toFixed(2)}`;
+
+    if (cart.length === 0) {
+        itemsContainer.innerHTML = '<p class="cart-empty">Tu carrito está vacío</p>';
+        return;
+    }
+
+    itemsContainer.innerHTML = cart.map(item => `
+        <article class="cart-item" data-id="${item.id}">
+            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <div class="cart-item-info">
+                <h4>${item.name}</h4>
+                <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                <div class="cart-item-actions">
+                    <button class="cart-qty-btn" data-action="decrease" aria-label="Disminuir cantidad">−</button>
+                    <span class="cart-qty">${item.quantity}</span>
+                    <button class="cart-qty-btn" data-action="increase" aria-label="Aumentar cantidad">+</button>
+                    <button class="cart-remove" aria-label="Eliminar producto">
+                        <i class="fas fa-trash" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </article>
+    `).join('');
+}
+
+function showToast(message) {
+    const toast = document.querySelector('.cart-toast');
+    if (!toast) return;
+    toast.querySelector('span').textContent = message;
+    toast.hidden = false;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => { toast.hidden = true; }, 300);
+    }, 2500);
+}
+
+// Drawer del carrito
+const cartBtn = document.querySelector('.cart-btn');
+const cartDrawer = document.querySelector('.cart-drawer');
+const cartOverlay = document.querySelector('.cart-overlay');
+const cartClose = document.querySelector('.cart-close');
+
+function openCart() {
+    if (cartDrawer && cartOverlay) {
+        cartDrawer.hidden = false;
+        cartOverlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeCart() {
+    if (cartDrawer && cartOverlay) {
+        cartDrawer.hidden = true;
+        cartOverlay.hidden = true;
+        document.body.style.overflow = '';
+    }
+}
+
+if (cartBtn) cartBtn.addEventListener('click', openCart);
+if (cartClose) cartClose.addEventListener('click', closeCart);
+if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+
+// Eventos del carrito (delegación)
+document.addEventListener('click', (e) => {
+    // Agregar al carrito (tarjetas de producto)
+    const addBtn = e.target.closest('.btn-add-cart');
+    if (addBtn) {
+        const id = addBtn.dataset.productId;
+        if (id) addToCart(id);
+        return;
+    }
+
+    // Botón de checkout
+    if (e.target.closest('#cart-checkout')) {
+        const cart = getCart();
+        if (cart.length === 0) {
+            showToast('Tu carrito está vacío');
+        } else {
+            showToast('¡Gracias por tu compra! (simulación)');
+            clearCart();
+            closeCart();
+        }
+        return;
+    }
+
+    // Cantidad del carrito
+    const qtyBtn = e.target.closest('.cart-qty-btn');
+    if (qtyBtn) {
+        const item = qtyBtn.closest('.cart-item');
+        const id = item?.dataset.id;
+        const currentQty = parseInt(item?.querySelector('.cart-qty')?.textContent) || 1;
+        if (qtyBtn.dataset.action === 'increase') {
+            updateQuantity(id, currentQty + 1);
+        } else {
+            updateQuantity(id, currentQty - 1);
+        }
+        return;
+    }
+
+    // Eliminar del carrito
+    const removeBtn = e.target.closest('.cart-remove');
+    if (removeBtn) {
+        const item = removeBtn.closest('.cart-item');
+        const id = item?.dataset.id;
+        if (id) removeFromCart(id);
+        return;
+    }
+});
+
+// Cerrar carrito con ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && cartDrawer && !cartDrawer.hidden) {
+        closeCart();
+    }
+});
+
+// Inicializar carrito al cargar
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartUI(getCart());
 });
 
 // Vista rápida de producto
@@ -177,14 +367,9 @@ function openQuickView(card) {
     quickviewNewPrice.textContent = price;
 
     quickviewAddCart.onclick = () => {
-        cartCount++;
-        cartBadge.textContent = cartCount;
-        cartToast.hidden = false;
-        cartToast.classList.add('show');
-        setTimeout(() => {
-            cartToast.classList.remove('show');
-            setTimeout(() => { cartToast.hidden = true; }, 300);
-        }, 2500);
+        const card = document.querySelector(`.product-card .btn-add-cart[data-product-id]`);
+        const id = card?.dataset.productId || '1';
+        addToCart(id);
         quickviewModal.close();
     };
 

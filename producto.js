@@ -139,20 +139,12 @@ if (product) {
     // Agregar funcionalidad al botón de carrito
     const addCartBtn = document.getElementById('detail-add-cart');
     const quantityInput = document.getElementById('quantity');
-    const cartBadge = document.querySelector('.cart-badge');
-    const cartToast = document.querySelector('.cart-toast');
-    let cartCount = parseInt(cartBadge.textContent) || 0;
 
     addCartBtn.addEventListener('click', () => {
         const qty = parseInt(quantityInput.value) || 1;
-        cartCount += qty;
-        cartBadge.textContent = cartCount;
-        cartToast.hidden = false;
-        cartToast.classList.add('show');
-        setTimeout(() => {
-            cartToast.classList.remove('show');
-            setTimeout(() => { cartToast.hidden = true; }, 300);
-        }, 2500);
+        if (typeof addToCart === 'function') {
+            addToCart(productId, qty);
+        }
     });
 } else {
     // Producto no encontrado

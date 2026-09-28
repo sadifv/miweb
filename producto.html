@@ -158,6 +158,30 @@
         </p>
     </footer>
 
+    <!-- Drawer del carrito -->
+
+    <div class="cart-overlay" hidden></div>
+    <aside class="cart-drawer" aria-label="Carrito de compras" hidden>
+        <header class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button type="button" class="cart-close" aria-label="Cerrar carrito">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </header>
+        <div class="cart-items" id="cart-items">
+            <p class="cart-empty">Tu carrito está vacío</p>
+        </div>
+        <footer class="cart-footer">
+            <p class="cart-total">
+                <span>Total:</span>
+                <strong id="cart-total">$0.00</strong>
+            </p>
+            <button class="btn btn-primary cart-checkout" id="cart-checkout">
+                <i class="fas fa-lock" aria-hidden="true"></i> Finalizar compra
+            </button>
+        </footer>
+    </aside>
+
     <!-- Modal de búsqueda -->
 
     <dialog class="search-modal" aria-label="Buscar productos">
