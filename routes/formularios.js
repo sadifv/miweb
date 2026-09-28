@@ -1,71 +1,45 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const path = require('path');
+const Contacto = require('../models/Contacto');
+const Newsletter = require('../models/Newsletter');
 
 // Formulario de contacto
-router.post('/contacto', (req, res) => {
+router.post('/contacto', async (req, res) => {
     const { nombre, email, mensaje } = req.body;
 
     if (!nombre || !email || !mensaje) {
         return res.status(400).json({ error: 'Todos los campos son obligatorios' });
     }
 
-    // Guardar en archivo JSON (simulación de base de datos)
-    const dataPath = path.join(__dirname, '../data/contactos.json');
-    let contactos = [];
     try {
-        const data = fs.readFileSync(dataPath, 'utf8');
-        contactos = JSON.parse(data);
-    } catch {
-        contactos = [];
+        const contacto = new Contacto({ nombre, email, mensaje });
+        await contacto.save();
+        res.json({ mensaje: '¡Mensaje enviado! Te contactaremos pronto' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al guardar el mensaje' });
     }
-
-    contactos.push({
-        id: Date.now(),
-        nombre,
-        email,
-        mensaje,
-        fecha: new Date().toISOString()
-    });
-
-    fs.writeFileSync(dataPath, JSON.stringify(contactos, null, 2));
-
-    res.json({ mensaje: '¡Mensaje enviado! Te contactaremos pronto' });
 });
 
 // Formulario de newsletter
-router.post('/newsletter', (req, res) => {
+router.post('/newsletter', async (req, res) => {
     const { email } = req.body;
 
     if (!email) {
         return res.status(400).json({ error: 'El email es obligatorio' });
     }
 
-    // Guardar en archivo JSON (simulación de base de datos)
-    const dataPath = path.join(__dirname, '../data/newsletter.json');
-    let suscriptores = [];
     try {
-        const data = fs.readFileSync(dataPath, 'utf8');
-        suscriptores = JSON.parse(data);
-    } catch {
-        suscriptores = [];
+        const existente = await Newsletter.findOne({ email });
+        if (existente) {
+            return res.status(400).json({ error: 'Este email ya está suscrito' });
+        }
+
+        const suscriptor = new Newsletter({ email });
+        await suscriptor.save();
+        res.json({ mensaje: '¡Suscripción exitosa! Revisa tu email' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al guardar la suscripción' });
     }
-
-    // Verificar si ya existe
-    if (suscriptores.find(s => s.email === email)) {
-        return res.status(400).json({ error: 'Este email ya está suscrito' });
-    }
-
-    suscriptores.push({
-        id: Date.now(),
-        email,
-        fecha: new Date().toISOString()
-    });
-
-    fs.writeFileSync(dataPath, JSON.stringify(suscriptores, null, 2));
-
-    res.json({ mensaje: '¡Suscripción exitosa! Revisa tu email' });
 });
 
 module.exports = router;

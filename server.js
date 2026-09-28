@@ -1,8 +1,16 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = 3000;
+
+// Conexión a MongoDB
+const MONGODB_URI = 'mongodb+srv://jacobogarcesoguendo:aFJzVMGN3o7fA38A@cluster0.mqwbn.mongodb.net/';
+
+mongoose.connect(MONGODB_URI)
+    .then(() => console.log('Conectado a MongoDB'))
+    .catch(err => console.error('Error conectando a MongoDB:', err));
 
 // Middleware
 app.use(express.json());
