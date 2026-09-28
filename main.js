@@ -15,6 +15,26 @@ hamburger.addEventListener('click', () => {
     hamburger.setAttribute('aria-expanded', navMenu.classList.contains('open'));
 });
 
+// Botón "Mi cuenta" - próximamente
+const userBtn = document.querySelector('.user-btn');
+if (userBtn) {
+    userBtn.addEventListener('click', () => {
+        if (typeof showToast === 'function') {
+            showToast('Mi cuenta - Próximamente');
+        }
+    });
+}
+
+// Enlaces "Próximamente"
+document.querySelectorAll('[data-soon]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (typeof showToast === 'function') {
+            showToast('Próximamente');
+        }
+    });
+});
+
 // Cerrar menú móvil al hacer clic en un enlace
 navMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
