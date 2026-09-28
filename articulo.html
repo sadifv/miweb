@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artículo del blog - TechStore">
+    <title>Artículo - TechStore</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- HEADER - Barra de navegación sticky -->
+
+    <header class="main-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Navegación principal">
+                <p class="logo">
+                <a href="index.html" aria-label="TechStore - Inicio">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </a>
+            </p>
+            
+             <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="index.html#inicio" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="productos.html" role="menuitem">Productos</a></li>
+                <li role="none"><a href="index.html#ofertas" role="menuitem">Ofertas</a></li>
+                <li role="none"><a href="index.html#blog" role="menuitem">Blog</a></li>
+                <li role="none"><a href="index.html#faq" role="menuitem">FAQ</a></li>
+                <li role="none"><a href="index.html#contacto" role="menuitem">Contacto</a></li>
+            </ul>
+            
+            <ul class="nav-actions">
+                <li>
+                    <button class="search-btn" aria-label="Buscar productos">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="theme-toggle" aria-label="Cambiar modo oscuro">
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="user-btn" aria-label="Mi cuenta">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="cart-btn" aria-label="Carrito de compras">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="cart-badge" aria-label="3 productos en el carrito">3</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="hamburger" aria-label="Menú móvil" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN - Artículo del blog -->
+
+    <main role="main">
+        
+        <article class="blog-post" aria-labelledby="blog-post-title">
+            <nav class="breadcrumb" aria-label="Migas de pan">
+                <ol>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li aria-current="page" id="breadcrumb-article">Artículo</li>
+                </ol>
+            </nav>
+
+            <article class="blog-post-container" id="blog-post-container">
+                <!-- El contenido se carga dinámicamente con JS -->
+                <p class="blog-loading">Cargando artículo...</p>
+            </article>
+        </article>
+
+    </main>
+
+    <!-- FOOTER - Pie de página -->
+
+    <footer class="main-footer" role="contentinfo">
+        <ul class="footer-grid">
+            
+            <!-- Columna 1: Marca -->
+
+            <li class="footer-brand">
+                <p class="logo">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </p>
+                <p>Tu tienda de tecnología favorita. Calidad, innovación y los mejores precios.</p>
+                <ul class="social-links">
+                    <li><a href="https://facebook.com/techstore" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                    <li><a href="https://instagram.com/techstore" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="https://tiktok.com/@techstore" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a></li>
+                    <li><a href="https://youtube.com/@techstore" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 2: Enlaces rápidos -->
+
+            <li class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="index.html#ofertas">Ofertas</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 3: Atención al cliente -->
+
+            <li class="footer-links">
+                <h4>Atención al cliente</h4>
+                <ul>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#" data-soon="true">Política de envío</a></li>
+                    <li><a href="#" data-soon="true">Devoluciones</a></li>
+                    <li><a href="index.html#faq">Preguntas frecuentes</a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 4: Legal -->
+
+            <li class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#" data-soon="true">Política de privacidad</a></li>
+                    <li><a href="#" data-soon="true">Términos y condiciones</a></li>
+                    <li><a href="#" data-soon="true">Política de cookies</a></li>
+                    <li><a href="#" data-soon="true">Aviso legal</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <hr class="footer-divider">
+
+        <p class="footer-bottom">
+            <span>&copy; 2026 TechStore. Todos los derechos reservados.</span>
+            <span class="payment-methods">
+                <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+                <i class="fab fa-cc-amex" aria-label="American Express"></i>
+            </span>
+        </p>
+    </footer>
+
+    <!-- Modal de cuenta -->
+
+    <dialog class="account-modal" aria-labelledby="account-title">
+        <article class="account-content">
+            <header class="account-header">
+                <h3 id="account-title">Mi Cuenta</h3>
+                <button type="button" class="account-close" aria-label="Cerrar">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </header>
+            <div class="account-tabs">
+                <button class="account-tab active" data-tab="login">Iniciar sesión</button>
+                <button class="account-tab" data-tab="register">Registrarse</button>
+            </div>
+            <form class="account-form" id="login-form">
+                <p class="form-row">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="tu@email.com" required>
+                </p>
+                <p class="form-row">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required>
+                </p>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Iniciar sesión
+                </button>
+            </form>
+            <form class="account-form hidden" id="register-form">
+                <p class="form-row">
+                    <label for="register-name">Nombre</label>
+                    <input type="text" id="register-name" placeholder="Tu nombre" required>
+                </p>
+                <p class="form-row">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="tu@email.com" required>
+                </p>
+                <p class="form-row">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" placeholder="••••••••" required>
+                </p>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-user-plus" aria-hidden="true"></i> Crear cuenta
+                </button>
+            </form>
+        </article>
+    </dialog>
+
+    <!-- Modal de búsqueda -->
+
+    <dialog class="search-modal" aria-label="Buscar productos">
+        <form class="search-form" method="dialog">
+            <label for="search-input" class="sr-only">Buscar productos</label>
+            <input type="search" id="search-input" placeholder="Buscar productos..." autocomplete="off">
+            <button type="submit" aria-label="Buscar">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="search-close" aria-label="Cerrar búsqueda">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </form>
+        <div class="search-results" aria-live="polite"></div>
+    </dialog>
+
+    <!-- Drawer del carrito -->
+
+    <div class="cart-overlay" hidden></div>
+    <aside class="cart-drawer" aria-label="Carrito de compras" hidden>
+        <header class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button type="button" class="cart-close" aria-label="Cerrar carrito">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </header>
+        <div class="cart-items" id="cart-items">
+            <p class="cart-empty">Tu carrito está vacío</p>
+        </div>
+        <footer class="cart-footer">
+            <p class="cart-total">
+                <span>Total:</span>
+                <strong id="cart-total">$0.00</strong>
+            </p>
+            <button class="btn btn-primary cart-checkout" id="cart-checkout">
+                <i class="fas fa-lock" aria-hidden="true"></i> Finalizar compra
+            </button>
+        </footer>
+    </aside>
+
+    <!-- Toast de carrito -->
+
+    <aside class="cart-toast" role="status" aria-live="polite" hidden>
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        <span>Producto añadido al carrito</span>
+    </aside>
+
+    <!-- Botón volver arriba -->
+
+    <button class="back-to-top" aria-label="Volver arriba" hidden>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="main.js" defer></script>
+    <script src="articulo.js" defer></script>
+
+</body>
+</html>
