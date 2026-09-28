@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detalle de producto - TechStore">
-    <title>Producto - TechStore</title>
+    <meta name="description" content="Artículo del blog - TechStore">
+    <title>Artículo - TechStore</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     
@@ -71,24 +71,24 @@
         </nav>
     </header>
 
-    <!-- MAIN - Detalle de producto -->
+    <!-- MAIN - Artículo del blog -->
 
     <main role="main">
         
-        <section class="product-detail" aria-labelledby="product-detail-title">
+        <article class="blog-post" aria-labelledby="blog-post-title">
             <nav class="breadcrumb" aria-label="Migas de pan">
                 <ol>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                    <li aria-current="page" id="breadcrumb-product">Producto</li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li aria-current="page" id="breadcrumb-article">Artículo</li>
                 </ol>
             </nav>
 
-            <article class="product-detail-container" id="product-detail-container">
+            <article class="blog-post-container" id="blog-post-container">
                 <!-- El contenido se carga dinámicamente con JS -->
-                <p class="product-loading">Cargando producto...</p>
+                <p class="blog-loading">Cargando artículo...</p>
             </article>
-        </section>
+        </article>
 
     </main>
 
@@ -211,6 +211,22 @@
         </article>
     </dialog>
 
+    <!-- Modal de búsqueda -->
+
+    <dialog class="search-modal" aria-label="Buscar productos">
+        <form class="search-form" method="dialog">
+            <label for="search-input" class="sr-only">Buscar productos</label>
+            <input type="search" id="search-input" placeholder="Buscar productos..." autocomplete="off">
+            <button type="submit" aria-label="Buscar">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="search-close" aria-label="Cerrar búsqueda">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </form>
+        <div class="search-results" aria-live="polite"></div>
+    </dialog>
+
     <!-- Drawer del carrito -->
 
     <div class="cart-overlay" hidden></div>
@@ -235,22 +251,6 @@
         </footer>
     </aside>
 
-    <!-- Modal de búsqueda -->
-
-    <dialog class="search-modal" aria-label="Buscar productos">
-        <form class="search-form" method="dialog">
-            <label for="search-input" class="sr-only">Buscar productos</label>
-            <input type="search" id="search-input" placeholder="Buscar productos..." autocomplete="off">
-            <button type="submit" aria-label="Buscar">
-                <i class="fas fa-search" aria-hidden="true"></i>
-            </button>
-            <button type="button" class="search-close" aria-label="Cerrar búsqueda">
-                <i class="fas fa-times" aria-hidden="true"></i>
-            </button>
-        </form>
-        <div class="search-results" aria-live="polite"></div>
-    </dialog>
-
     <!-- Toast de carrito -->
 
     <aside class="cart-toast" role="status" aria-live="polite" hidden>
@@ -264,8 +264,8 @@
         <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
-    <script src="main.js" defer></script>
-    <script src="producto.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/articulo.js" defer></script>
 
 </body>
 </html>

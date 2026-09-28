@@ -29,8 +29,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Servir archivos estáticos
-app.use(express.static(__dirname));
+// Servir archivos estáticos desde public/
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Manejo de errores 404
 app.use((req, res) => {
