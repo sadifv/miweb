@@ -339,6 +339,29 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Formularios
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (typeof showToast === 'function') {
+            showToast('¡Mensaje enviado! Te contactaremos pronto');
+        }
+        contactForm.reset();
+    });
+}
+
+const newsletterForm = document.querySelector('.newsletter-form');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (typeof showToast === 'function') {
+            showToast('¡Suscripción exitosa! Revisa tu email');
+        }
+        newsletterForm.reset();
+    });
+}
+
 // Inicializar carrito al cargar
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI(getCart());
