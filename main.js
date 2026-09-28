@@ -16,6 +16,14 @@ hamburger.addEventListener('click', () => {
     hamburger.setAttribute('aria-expanded', navMenu.classList.contains('open'));
 });
 
+// Cerrar menú móvil al hacer clic en un enlace
+navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+    });
+});
+
 // Header al hacer scroll
 
 window.addEventListener('scroll', () => {
