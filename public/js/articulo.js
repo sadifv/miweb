@@ -5,7 +5,7 @@ const articlesData = {
         category: 'Guías',
         date: '2026-03-15',
         dateDisplay: '15 Mar 2026',
-        image: 'assets/blog-gadgets.jpg',
+        image: '/assets/blog-gadgets.jpg',
         excerpt: 'Descubre qué dispositivos están marcando tendencia este año y cuáles valen la pena.',
         content: `
             <p>El 2026 ha sido un año revolucionario para la tecnología de consumo. Desde wearables hasta dispositivos inteligentes para el hogar, la innovación no se detiene. En este artículo, te presentamos los 10 dispositivos que consideramos indispensables para este año.</p>
@@ -37,7 +37,7 @@ const articlesData = {
         category: 'Reviews',
         date: '2026-03-10',
         dateDisplay: '10 Mar 2026',
-        image: 'assets/blog-headphones.jpg',
+        image: '/assets/blog-headphones.jpg',
         excerpt: 'Probamos los mejores modelos del mercado y te contamos cuál elegir según tu presupuesto.',
         content: `
             <p>La cancelación activa de ruido (ANC) se ha convertido en una característica esencial en los auriculares modernos. Pero ¿realmente vale la pena pagar más por esta tecnología? Lo probamos para ti.</p>
@@ -60,7 +60,7 @@ const articlesData = {
         category: 'Salud',
         date: '2026-03-05',
         dateDisplay: '5 Mar 2026',
-        image: 'assets/blog-smartwatch.jpg',
+        image: '/assets/blog-smartwatch.jpg',
         excerpt: 'Monitorización cardiaca, sueño y actividad: todo lo que debes saber antes de comprar.',
         content: `
             <p>Los smartwatches han evolucionado de simples notificaciones a verdaderos dispositivos de monitorización de salud. Descubre cómo pueden ayudarte a llevar una vida más saludable.</p>
@@ -110,7 +110,7 @@ if (article) {
                 ${article.content}
             </div>
             <footer class="blog-post-footer">
-                <a href="index.html#blog" class="back-link">
+                <a href="/#blog" class="back-link">
                     <i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al blog
                 </a>
             </footer>
@@ -125,7 +125,7 @@ if (article) {
             <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
             <h1>Artículo no encontrado</h1>
             <p>El artículo que buscas no existe o ha sido removido.</p>
-            <a href="index.html#blog" class="btn btn-primary">
+            <a href="/#blog" class="btn btn-primary">
                 <i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al blog
             </a>
         </article>

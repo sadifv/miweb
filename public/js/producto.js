@@ -7,7 +7,7 @@ const productsData = {
         categoryLabel: 'Dispositivos',
         oldPrice: '$129.99',
         price: '$89.99',
-        image: 'assets/product-smartwatch.webp',
+        image: '/assets/product-smartwatch.webp',
         stars: '★★★★★',
         starsLabel: '5 estrellas',
         reviews: '(124 reseñas)',
@@ -20,7 +20,7 @@ const productsData = {
         categoryLabel: 'Audio',
         oldPrice: null,
         price: '$59.99',
-        image: 'assets/product-headphones.jpg',
+        image: '/assets/product-headphones.jpg',
         stars: '★★★★☆',
         starsLabel: '4 estrellas',
         reviews: '(89 reseñas)',
@@ -33,7 +33,7 @@ const productsData = {
         categoryLabel: 'Accesorios',
         oldPrice: '$79.99',
         price: '$63.99',
-        image: 'assets/product-camera.jpg',
+        image: '/assets/product-camera.jpg',
         stars: '★★★★★',
         starsLabel: '5 estrellas',
         reviews: '(67 reseñas)',
@@ -46,7 +46,7 @@ const productsData = {
         categoryLabel: 'Dispositivos',
         oldPrice: '$149.99',
         price: '$119.99',
-        image: 'assets/product-shoes.jpg',
+        image: '/assets/product-shoes.jpg',
         stars: '★★★★☆',
         starsLabel: '4 estrellas',
         reviews: '(43 reseñas)',
@@ -59,7 +59,7 @@ const productsData = {
         categoryLabel: 'Audio',
         oldPrice: '$45.99',
         price: '$38.99',
-        image: 'assets/product-speaker.jpg',
+        image: '/assets/product-speaker.jpg',
         stars: '★★★★★',
         starsLabel: '5 estrellas',
         reviews: '(205 reseñas)',
@@ -72,7 +72,7 @@ const productsData = {
         categoryLabel: 'Accesorios',
         oldPrice: '$199.99',
         price: '$159.99',
-        image: 'assets/product-watch.jpg',
+        image: '/assets/product-watch.jpg',
         stars: '★★★★★',
         starsLabel: '5 estrellas',
         reviews: '(312 reseñas)',
@@ -85,7 +85,7 @@ const productsData = {
         categoryLabel: 'Dispositivos',
         oldPrice: '$299.99',
         price: '$249.99',
-        image: 'assets/product-tablet.jpg',
+        image: '/assets/product-tablet.jpg',
         stars: '★★★★☆',
         starsLabel: '4 estrellas',
         reviews: '(56 reseñas)',
@@ -98,7 +98,7 @@ const productsData = {
         categoryLabel: 'Accesorios',
         oldPrice: '$89.99',
         price: '$67.99',
-        image: 'assets/product-keyboard.jpg',
+        image: '/assets/product-keyboard.jpg',
         stars: '★★★★★',
         starsLabel: '5 estrellas',
         reviews: '(178 reseñas)',
@@ -111,7 +111,7 @@ const productsData = {
         categoryLabel: 'Accesorios',
         oldPrice: '$49.99',
         price: '$39.99',
-        image: 'assets/product-mouse.jpg',
+        image: '/assets/product-mouse.jpg',
         stars: '★★★★★',
         starsLabel: '5 estrellas',
         reviews: '(234 reseñas)',
@@ -124,7 +124,7 @@ const productsData = {
         categoryLabel: 'Dispositivos',
         oldPrice: '$59.99',
         price: '$53.99',
-        image: 'assets/product-webcam.jpg',
+        image: '/assets/product-webcam.jpg',
         stars: '★★★★☆',
         starsLabel: '4 estrellas',
         reviews: '(92 reseñas)',
@@ -137,7 +137,7 @@ const productsData = {
         categoryLabel: 'Accesorios',
         oldPrice: null,
         price: '$29.99',
-        image: 'assets/product-charger.jpg',
+        image: '/assets/product-charger.jpg',
         stars: '★★★★★',
         starsLabel: '5 estrellas',
         reviews: '(145 reseñas)',
@@ -150,7 +150,7 @@ const productsData = {
         categoryLabel: 'Accesorios',
         oldPrice: '$34.99',
         price: '$24.99',
-        image: 'assets/product-case.jpg',
+        image: '/assets/product-case.jpg',
         stars: '★★★★☆',
         starsLabel: '4 estrellas',
         reviews: '(67 reseñas)',
@@ -207,7 +207,7 @@ if (product) {
                         <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
                     </button>
                 </div>
-                <a href="productos.html" class="back-link">
+                <a href="/productos.html" class="back-link">
                     <i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al catálogo
                 </a>
             </article>
@@ -233,7 +233,7 @@ if (product) {
             <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
             <h1>Producto no encontrado</h1>
             <p>El producto que buscas no existe o ha sido removido.</p>
-            <a href="productos.html" class="btn btn-primary">
+            <a href="/productos.html" class="btn btn-primary">
                 <i class="fas fa-store" aria-hidden="true"></i> Ver catálogo
             </a>
         </article>

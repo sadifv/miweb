@@ -243,18 +243,18 @@ function getProductData(id) {
     }
     // Fallback para producto.html
     const productsData = {
-        1: { name: 'Smartwatch Pro X1 con Monitor Cardiaco', price: 89.99, image: 'assets/product-smartwatch.webp' },
-        2: { name: 'Auriculares Bluetooth 5.3 Noise Cancelling', price: 59.99, image: 'assets/product-headphones.jpg' },
-        3: { name: 'Cámara Instantánea con Impresión Incluida', price: 63.99, image: 'assets/product-camera.jpg' },
-        4: { name: 'Zapatillas Inteligentes con GPS Integrado', price: 119.99, image: 'assets/product-shoes.jpg' },
-        5: { name: 'Altavoz Portátil con Luces LED', price: 38.99, image: 'assets/product-speaker.jpg' },
-        6: { name: 'Reloj Inteligente Serie 8 con Esfera OLED', price: 159.99, image: 'assets/product-watch.jpg' },
-        7: { name: 'Tablet Android 12" con 128GB', price: 249.99, image: 'assets/product-tablet.jpg' },
-        8: { name: 'Teclado Mecánico RGB TKL', price: 67.99, image: 'assets/product-keyboard.jpg' },
-        9: { name: 'Mouse Gamer Pro 16000 DPI', price: 39.99, image: 'assets/product-mouse.jpg' },
-        10: { name: 'Webcam Full HD 1080p con Micrófono', price: 53.99, image: 'assets/product-webcam.jpg' },
-        11: { name: 'Cargador Inalámbrico 15W', price: 29.99, image: 'assets/product-charger.jpg' },
-        12: { name: 'Funda Protectora Universal 11"', price: 24.99, image: 'assets/product-case.jpg' }
+        1: { name: 'Smartwatch Pro X1 con Monitor Cardiaco', price: 89.99, image: '/assets/product-smartwatch.webp' },
+        2: { name: 'Auriculares Bluetooth 5.3 Noise Cancelling', price: 59.99, image: '/assets/product-headphones.jpg' },
+        3: { name: 'Cámara Instantánea con Impresión Incluida', price: 63.99, image: '/assets/product-camera.jpg' },
+        4: { name: 'Zapatillas Inteligentes con GPS Integrado', price: 119.99, image: '/assets/product-shoes.jpg' },
+        5: { name: 'Altavoz Portátil con Luces LED', price: 38.99, image: '/assets/product-speaker.jpg' },
+        6: { name: 'Reloj Inteligente Serie 8 con Esfera OLED', price: 159.99, image: '/assets/product-watch.jpg' },
+        7: { name: 'Tablet Android 12" con 128GB', price: 249.99, image: '/assets/product-tablet.jpg' },
+        8: { name: 'Teclado Mecánico RGB TKL', price: 67.99, image: '/assets/product-keyboard.jpg' },
+        9: { name: 'Mouse Gamer Pro 16000 DPI', price: 39.99, image: '/assets/product-mouse.jpg' },
+        10: { name: 'Webcam Full HD 1080p con Micrófono', price: 53.99, image: '/assets/product-webcam.jpg' },
+        11: { name: 'Cargador Inalámbrico 15W', price: 29.99, image: '/assets/product-charger.jpg' },
+        12: { name: 'Funda Protectora Universal 11"', price: 24.99, image: '/assets/product-case.jpg' }
     };
     return productsData[id] ? { id, ...productsData[id] } : null;
 }
