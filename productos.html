@@ -351,6 +351,53 @@
         </p>
     </footer>
 
+    <!-- Modal de cuenta -->
+
+    <dialog class="account-modal" aria-labelledby="account-title">
+        <article class="account-content">
+            <header class="account-header">
+                <h3 id="account-title">Mi Cuenta</h3>
+                <button type="button" class="account-close" aria-label="Cerrar">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </header>
+            <div class="account-tabs">
+                <button class="account-tab active" data-tab="login">Iniciar sesión</button>
+                <button class="account-tab" data-tab="register">Registrarse</button>
+            </div>
+            <form class="account-form" id="login-form">
+                <p class="form-row">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="tu@email.com" required>
+                </p>
+                <p class="form-row">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required>
+                </p>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Iniciar sesión
+                </button>
+            </form>
+            <form class="account-form hidden" id="register-form">
+                <p class="form-row">
+                    <label for="register-name">Nombre</label>
+                    <input type="text" id="register-name" placeholder="Tu nombre" required>
+                </p>
+                <p class="form-row">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="tu@email.com" required>
+                </p>
+                <p class="form-row">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" placeholder="••••••••" required>
+                </p>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-user-plus" aria-hidden="true"></i> Crear cuenta
+                </button>
+            </form>
+        </article>
+    </dialog>
+
     <!-- Drawer del carrito -->
 
     <div class="cart-overlay" hidden></div>

@@ -15,13 +15,63 @@ hamburger.addEventListener('click', () => {
     hamburger.setAttribute('aria-expanded', navMenu.classList.contains('open'));
 });
 
-// Botón "Mi cuenta" - próximamente
+// Modal de cuenta
 const userBtn = document.querySelector('.user-btn');
-if (userBtn) {
+const accountModal = document.querySelector('.account-modal');
+const accountClose = document.querySelector('.account-close');
+const accountTabs = document.querySelectorAll('.account-tab');
+const loginForm = document.getElementById('login-form');
+const registerForm = document.getElementById('register-form');
+
+if (userBtn && accountModal) {
     userBtn.addEventListener('click', () => {
-        if (typeof showToast === 'function') {
-            showToast('Mi cuenta - Próximamente');
+        accountModal.showModal();
+    });
+}
+
+if (accountClose && accountModal) {
+    accountClose.addEventListener('click', () => {
+        accountModal.close();
+    });
+}
+
+// Pestañas de login/registro
+accountTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        accountTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.dataset.tab;
+        if (target === 'login') {
+            loginForm?.classList.remove('hidden');
+            registerForm?.classList.add('hidden');
+        } else {
+            loginForm?.classList.add('hidden');
+            registerForm?.classList.remove('hidden');
         }
+    });
+});
+
+// Submit de login
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (typeof showToast === 'function') {
+            showToast('¡Bienvenido de nuevo!');
+        }
+        accountModal?.close();
+        loginForm.reset();
+    });
+}
+
+// Submit de registro
+if (registerForm) {
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (typeof showToast === 'function') {
+            showToast('¡Cuenta creada con éxito!');
+        }
+        accountModal?.close();
+        registerForm.reset();
     });
 }
 
