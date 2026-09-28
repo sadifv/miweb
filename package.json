@@ -1,0 +1,25 @@
+{
+  "name": "miweb",
+  "version": "1.0.0",
+  "description": "Landing page de e-commerce para una tienda de accesorios tecnológicos. Proyecto web estático construido con **HTML semántico**, **CSS moderno** y **JavaScript vanilla**.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadifv/miweb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sadifv/miweb/issues"
+  },
+  "homepage": "https://github.com/sadifv/miweb#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
