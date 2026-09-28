@@ -77,6 +77,84 @@ const productsData = {
         starsLabel: '5 estrellas',
         reviews: '(312 reseñas)',
         badge: 'Top'
+    },
+    7: {
+        name: 'Tablet Android 12" con 128GB',
+        description: 'Pantalla IPS de 12 pulgadas, 6GB RAM, batería de 8000mAh y altavoces estéreo para entretenimiento total.',
+        category: 'gadgets',
+        categoryLabel: 'Dispositivos',
+        oldPrice: '$299.99',
+        price: '$249.99',
+        image: 'assets/product-tablet.jpg',
+        stars: '★★★★☆',
+        starsLabel: '4 estrellas',
+        reviews: '(56 reseñas)',
+        badge: 'Nuevo'
+    },
+    8: {
+        name: 'Teclado Mecánico RGB TKL',
+        description: 'Switches Blue retroiluminados, estructura de aluminio y teclas PBT double-shot para gaming profesional.',
+        category: 'accesorios',
+        categoryLabel: 'Accesorios',
+        oldPrice: '$89.99',
+        price: '$67.99',
+        image: 'assets/product-keyboard.jpg',
+        stars: '★★★★★',
+        starsLabel: '5 estrellas',
+        reviews: '(178 reseñas)',
+        badge: '-25%'
+    },
+    9: {
+        name: 'Mouse Gamer Pro 16000 DPI',
+        description: 'Sensor óptico de 16000 DPI, 8 botones programables, iluminación RGB y diseño ergonómico para uso prolongado.',
+        category: 'accesorios',
+        categoryLabel: 'Accesorios',
+        oldPrice: '$49.99',
+        price: '$39.99',
+        image: 'assets/product-mouse.jpg',
+        stars: '★★★★★',
+        starsLabel: '5 estrellas',
+        reviews: '(234 reseñas)',
+        badge: 'Top'
+    },
+    10: {
+        name: 'Webcam Full HD 1080p con Micrófono',
+        description: 'Cámara web 1080p a 30fps, micrófono con cancelación de ruido, corrección automática de luz y tapa de privacidad.',
+        category: 'gadgets',
+        categoryLabel: 'Dispositivos',
+        oldPrice: '$59.99',
+        price: '$53.99',
+        image: 'assets/product-webcam.jpg',
+        stars: '★★★★☆',
+        starsLabel: '4 estrellas',
+        reviews: '(92 reseñas)',
+        badge: '-10%'
+    },
+    11: {
+        name: 'Cargador Inalámbrico 15W',
+        description: 'Carga rápida inalámbrica de 15W, compatible con Qi, diseño delgado con LED indicador y protección contra sobrecalentamiento.',
+        category: 'accesorios',
+        categoryLabel: 'Accesorios',
+        oldPrice: null,
+        price: '$29.99',
+        image: 'assets/product-charger.jpg',
+        stars: '★★★★★',
+        starsLabel: '5 estrellas',
+        reviews: '(145 reseñas)',
+        badge: 'Nuevo'
+    },
+    12: {
+        name: 'Funda Protectora Universal 11"',
+        description: 'Funda acolchada con soporte integrado, resistente al agua, compartimentos para accesorios y cierre magnético.',
+        category: 'accesorios',
+        categoryLabel: 'Accesorios',
+        oldPrice: '$34.99',
+        price: '$24.99',
+        image: 'assets/product-case.jpg',
+        stars: '★★★★☆',
+        starsLabel: '4 estrellas',
+        reviews: '(67 reseñas)',
+        badge: 'Oferta'
     }
 };
 
