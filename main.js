@@ -184,7 +184,9 @@ function openQuickView(card) {
 }
 
 document.querySelectorAll('.quick-view').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const card = btn.closest('.product-card');
         if (card) openQuickView(card);
     });

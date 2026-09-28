@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalle de producto - TechStore">
+    <title>Producto - TechStore</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- HEADER - Barra de navegación sticky -->
+
+    <header class="main-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Navegación principal">
+                <p class="logo">
+                <a href="index.html" aria-label="TechStore - Inicio">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </a>
+            </p>
+            
+             <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="index.html#inicio" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="productos.html" role="menuitem">Productos</a></li>
+                <li role="none"><a href="index.html#ofertas" role="menuitem">Ofertas</a></li>
+                <li role="none"><a href="index.html#blog" role="menuitem">Blog</a></li>
+                <li role="none"><a href="index.html#contacto" role="menuitem">Contacto</a></li>
+            </ul>
+            
+            <ul class="nav-actions">
+                <li>
+                    <button class="search-btn" aria-label="Buscar productos">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="user-btn" aria-label="Mi cuenta">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="cart-btn" aria-label="Carrito de compras">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="cart-badge" aria-label="3 productos en el carrito">3</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="hamburger" aria-label="Menú móvil" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN - Detalle de producto -->
+
+    <main role="main">
+        
+        <section class="product-detail" aria-labelledby="product-detail-title">
+            <nav class="breadcrumb" aria-label="Migas de pan">
+                <ol>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li aria-current="page" id="breadcrumb-product">Producto</li>
+                </ol>
+            </nav>
+
+            <article class="product-detail-container" id="product-detail-container">
+                <!-- El contenido se carga dinámicamente con JS -->
+                <p class="product-loading">Cargando producto...</p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- FOOTER - Pie de página -->
+
+    <footer class="main-footer" role="contentinfo">
+        <ul class="footer-grid">
+            
+            <!-- Columna 1: Marca -->
+
+            <li class="footer-brand">
+                <p class="logo">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </p>
+                <p>Tu tienda de tecnología favorita. Calidad, innovación y los mejores precios.</p>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 2: Enlaces rápidos -->
+
+            <li class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="index.html#ofertas">Ofertas</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 3: Atención al cliente -->
+
+            <li class="footer-links">
+                <h4>Atención al cliente</h4>
+                <ul>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#">Política de envío</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </li>
+
+            <!-- Columna 4: Legal -->
+
+            <li class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de cookies</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <hr class="footer-divider">
+
+        <p class="footer-bottom">
+            <span>&copy; 2026 TechStore. Todos los derechos reservados.</span>
+            <span class="payment-methods">
+                <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+                <i class="fab fa-cc-amex" aria-label="American Express"></i>
+            </span>
+        </p>
+    </footer>
+
+    <!-- Modal de búsqueda -->
+
+    <dialog class="search-modal" aria-label="Buscar productos">
+        <form class="search-form" method="dialog">
+            <label for="search-input" class="sr-only">Buscar productos</label>
+            <input type="search" id="search-input" placeholder="Buscar productos..." autocomplete="off">
+            <button type="submit" aria-label="Buscar">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="search-close" aria-label="Cerrar búsqueda">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </form>
+        <div class="search-results" aria-live="polite"></div>
+    </dialog>
+
+    <!-- Toast de carrito -->
+
+    <aside class="cart-toast" role="status" aria-live="polite" hidden>
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        <span>Producto añadido al carrito</span>
+    </aside>
+
+    <!-- Botón volver arriba -->
+
+    <button class="back-to-top" aria-label="Volver arriba" hidden>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="main.js" defer></script>
+    <script src="producto.js" defer></script>
+
+</body>
+</html>
