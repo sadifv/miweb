@@ -179,6 +179,126 @@
     display: none;
 }
 
+/* ===== Toggle de contraseña ===== */
+.password-wrapper {
+    position: relative;
+    display: block;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 2.5rem;
+    border: 2px solid var(--auth-border);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--auth-transition);
+}
+
+.password-wrapper input:focus {
+    outline: none;
+    border-color: var(--auth-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.toggle-password:hover {
+    color: var(--auth-primary);
+}
+
+/* ===== Utilidades ===== */
+.hidden {
+    display: none !important;
+}
+
+/* ===== Menú de usuario desplegable ===== */
+.user-menu {
+    position: relative;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: var(--auth-card);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    min-width: 220px;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.user-menu:hover .user-dropdown,
+.user-menu:focus-within .user-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--auth-text);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.user-dropdown-item:hover {
+    background: var(--auth-bg);
+    color: var(--auth-primary);
+}
+
+.user-dropdown-item i {
+    width: 20px;
+    text-align: center;
+    color: var(--auth-text-muted);
+}
+
+.user-dropdown-item:hover i {
+    color: var(--auth-primary);
+}
+
+.user-dropdown-divider {
+    border: none;
+    border-top: 1px solid var(--auth-border);
+    margin: 0.5rem 0;
+}
+
+.user-admin {
+    color: var(--auth-primary) !important;
+    font-weight: 600;
+}
+
+.user-admin i {
+    color: var(--auth-primary) !important;
+}
+
 /* ===== Cerrar ===== */
 .auth-close {
     position: absolute;

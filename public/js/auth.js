@@ -377,11 +377,111 @@ async function syncCartWithUser() {
 }
 
 // ============================================
+// Toggle de visibilidad de contraseña
+// ============================================
+
+function initPasswordToggles() {
+    document.querySelectorAll('.toggle-password').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.dataset.target;
+            const input = document.getElementById(targetId);
+            const icon = btn.querySelector('i');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+                btn.setAttribute('aria-label', 'Ocultar contraseña');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+                btn.setAttribute('aria-label', 'Mostrar contraseña');
+            }
+        });
+    });
+}
+
+// ============================================
+// Menú de usuario desplegable
+// ============================================
+
+function initUserMenu() {
+    const userMenu = document.querySelector('.user-menu');
+    const userBtn = document.querySelector('.user-btn');
+    const btnLogout = document.getElementById('btn-logout');
+    const btnAdmin = document.getElementById('btn-admin');
+
+    if (!userMenu || !userBtn) return;
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (!userMenu.contains(e.target)) {
+            userMenu.classList.remove('open');
+        }
+    });
+
+    // Toggle del menú
+    userBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userMenu.classList.toggle('open');
+    });
+
+    // Cerrar sesión
+    if (btnLogout) {
+        btnLogout.addEventListener('click', (e) => {
+            e.preventDefault();
+            logout();
+        });
+    }
+
+    // Mostrar opción admin SOLO si el usuario está logueado como admin
+    updateAdminVisibility();
+}
+
+// ============================================
+// Actualizar visibilidad del botón admin
+// ============================================
+
+function updateAdminVisibility() {
+    const btnAdmin = document.getElementById('btn-admin');
+    if (!btnAdmin) return;
+
+    const user = getCurrentUser();
+    if (user && user.rol === 'admin') {
+        btnAdmin.classList.remove('hidden');
+    } else {
+        btnAdmin.classList.add('hidden');
+    }
+}
+
+// ============================================
+// Atajo de teclado para panel admin
+// ============================================
+
+function initAdminShortcut() {
+    document.addEventListener('keydown', (e) => {
+        // Ctrl + Shift + A
+        if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+            const user = getCurrentUser();
+            if (user && user.rol === 'admin') {
+                window.location.href = '/admin.html';
+            } else {
+                showToast('No tienes permisos de administrador', 'error');
+            }
+        }
+    });
+}
+
+// ============================================
 // Inicializar
 // ============================================
 
 function initAuth() {
     initAuthModal();
+    initPasswordToggles();
+    initUserMenu();
+    initAdminShortcut();
     updateAuthUI();
 
     // Verificar sesión activa al cargar
