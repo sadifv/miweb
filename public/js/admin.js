@@ -1,31 +1,20 @@
-// Panel de Administración
+// Panel de Administración - TechStore
 
-// Verificar autenticación
+// ===== Autenticación =====
+
 function checkAuth() {
     const isLoggedIn = localStorage.getItem('admin_logged_in');
     if (!isLoggedIn) {
-        showLoginPrompt();
+        document.getElementById('login-screen').classList.remove('hidden');
+        document.getElementById('admin-panel').classList.add('hidden');
         return false;
     }
+    document.getElementById('login-screen').classList.add('hidden');
+    document.getElementById('admin-panel').classList.remove('hidden');
     return true;
 }
 
-function showLoginPrompt() {
-    const container = document.querySelector('.admin-container');
-    container.innerHTML = `
-        <div style="text-align: center; padding: 4rem 2rem;">
-            <i class="fas fa-lock" style="font-size: 3rem; color: var(--color-primary); margin-bottom: 1rem;"></i>
-            <h2>Acceso restringido</h2>
-            <p style="color: var(--color-gray-500); margin-bottom: 1.5rem;">Inicia sesión para acceder al panel de administración</p>
-            <button class="btn-add" onclick="loginAdmin()">Iniciar sesión</button>
-        </div>
-    `;
-}
-
-async function loginAdmin() {
-    const email = prompt('Email de administrador:');
-    const password = prompt('Contraseña:');
-    
+async function loginAdmin(email, password) {
     try {
         const res = await fetch('/api/auth/login', {
             method: 'POST',
@@ -38,21 +27,48 @@ async function loginAdmin() {
         if (data.success) {
             localStorage.setItem('admin_logged_in', 'true');
             localStorage.setItem('admin_token', data.token);
-            location.reload();
+            showToast('¡Bienvenido!', 'success');
+            checkAuth();
+            loadAll();
         } else {
-            alert(data.error || 'Credenciales inválidas');
+            showToast(data.error || 'Credenciales inválidas', 'error');
         }
     } catch (error) {
-        alert('Error de conexión');
+        showToast('Error de conexión', 'error');
     }
 }
 
 function logoutAdmin() {
     localStorage.removeItem('admin_logged_in');
-    location.reload();
+    localStorage.removeItem('admin_token');
+    showToast('Sesión cerrada', 'success');
+    checkAuth();
 }
 
-// Tabs
+// Login form
+document.getElementById('login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    loginAdmin(email, password);
+});
+
+// Logout button
+document.getElementById('btn-logout').addEventListener('click', logoutAdmin);
+
+// ===== Toast =====
+
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast ${type}`;
+    setTimeout(() => {
+        toast.classList.add('hidden');
+    }, 3000);
+}
+
+// ===== Tabs =====
+
 function showTab(tab) {
     document.querySelectorAll('.admin-section').forEach(s => s.classList.add('hidden'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -60,18 +76,11 @@ function showTab(tab) {
     document.querySelector(`.tab-btn[data-tab="${tab}"]`).classList.add('active');
 }
 
-// Event listeners para tabs
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => showTab(btn.dataset.tab));
 });
 
-// Event listeners para botones de formulario
-document.getElementById('btn-new-product').addEventListener('click', showProductForm);
-document.getElementById('btn-cancel-product').addEventListener('click', hideProductForm);
-document.getElementById('btn-new-article').addEventListener('click', showArticleForm);
-document.getElementById('btn-cancel-article').addEventListener('click', hideArticleForm);
-
-// ============ PRODUCTOS ============
+// ===== Productos =====
 
 let productsCache = [];
 
@@ -80,6 +89,7 @@ async function loadProducts() {
         const res = await fetch('/api/productos');
         productsCache = await res.json();
         renderProducts();
+        updateStats();
     } catch (error) {
         console.error('Error:', error);
     }
@@ -100,7 +110,6 @@ function renderProducts() {
         </tr>
     `).join('');
     
-    // Agregar event listeners a los botones
     tbody.querySelectorAll('.btn-edit').forEach(btn => {
         btn.addEventListener('click', () => {
             const product = productsCache.find(p => p.id === parseInt(btn.dataset.id));
@@ -140,9 +149,10 @@ async function deleteProduct(id) {
     if (!confirm('¿Eliminar este producto?')) return;
     try {
         await fetch(`/api/productos/${id}`, { method: 'DELETE' });
+        showToast('Producto eliminado', 'success');
         loadProducts();
     } catch (error) {
-        console.error('Error:', error);
+        showToast('Error al eliminar', 'error');
     }
 }
 
@@ -167,6 +177,7 @@ document.getElementById('form-producto').addEventListener('submit', async (e) =>
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
+            showToast('Producto actualizado', 'success');
         } else {
             const maxId = productsCache.reduce((max, p) => Math.max(max, p.id), 0);
             data.id = maxId + 1;
@@ -175,15 +186,16 @@ document.getElementById('form-producto').addEventListener('submit', async (e) =>
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
+            showToast('Producto creado', 'success');
         }
         hideProductForm();
         loadProducts();
     } catch (error) {
-        console.error('Error:', error);
+        showToast('Error al guardar', 'error');
     }
 });
 
-// ============ ARTÍCULOS ============
+// ===== Artículos =====
 
 let articlesCache = [];
 
@@ -192,6 +204,7 @@ async function loadArticles() {
         const res = await fetch('/api/articulos');
         articlesCache = await res.json();
         renderArticles();
+        updateStats();
     } catch (error) {
         console.error('Error:', error);
     }
@@ -248,9 +261,10 @@ async function deleteArticle(id) {
     if (!confirm('¿Eliminar este artículo?')) return;
     try {
         await fetch(`/api/articulos/${id}`, { method: 'DELETE' });
+        showToast('Artículo eliminado', 'success');
         loadArticles();
     } catch (error) {
-        console.error('Error:', error);
+        showToast('Error al eliminar', 'error');
     }
 }
 
@@ -272,6 +286,7 @@ document.getElementById('form-articulo').addEventListener('submit', async (e) =>
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
+            showToast('Artículo actualizado', 'success');
         } else {
             const maxId = articlesCache.reduce((max, a) => Math.max(max, a.id), 0);
             data.id = maxId + 1;
@@ -280,15 +295,16 @@ document.getElementById('form-articulo').addEventListener('submit', async (e) =>
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
+            showToast('Artículo creado', 'success');
         }
         hideArticleForm();
         loadArticles();
     } catch (error) {
-        console.error('Error:', error);
+        showToast('Error al guardar', 'error');
     }
 });
 
-// ============ FORMULARIOS ============
+// ===== Formularios =====
 
 async function loadContacts() {
     try {
@@ -324,10 +340,29 @@ async function loadNewsletter() {
     }
 }
 
-// Inicializar
-if (checkAuth()) {
+// ===== Stats =====
+
+function updateStats() {
+    document.getElementById('stat-products').textContent = productsCache.length;
+    document.getElementById('stat-articles').textContent = articlesCache.length;
+}
+
+// ===== Inicializar =====
+
+function loadAll() {
     loadProducts();
     loadArticles();
     loadContacts();
     loadNewsletter();
+}
+
+// Event listeners para botones
+document.getElementById('btn-new-product').addEventListener('click', showProductForm);
+document.getElementById('btn-cancel-product').addEventListener('click', hideProductForm);
+document.getElementById('btn-new-article').addEventListener('click', showArticleForm);
+document.getElementById('btn-cancel-article').addEventListener('click', hideArticleForm);
+
+// Verificar autenticación al cargar
+if (checkAuth()) {
+    loadAll();
 }
