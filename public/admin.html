@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - TechStore</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container" role="navigation" aria-label="Navegación principal">
+            <p class="logo">
+                <a href="/" aria-label="TechStore - Inicio">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </a>
+            </p>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="/" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="/productos.html" role="menuitem">Productos</a></li>
+                <li role="none"><a href="/admin.html" role="menuitem" aria-current="page">Admin</a></li>
+            </ul>
+            <button class="btn-small" style="background: var(--color-gray-100); color: var(--color-dark); border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; margin-left: 1rem;" onclick="logoutAdmin()">
+                <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar sesión
+            </button>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+        <h1><i class="fas fa-cog" aria-hidden="true"></i> Panel de Administración</h1>
+
+        <nav class="admin-tabs" aria-label="Secciones de administración">
+            <button class="tab-btn active" data-tab="productos">Productos</button>
+            <button class="tab-btn" data-tab="articulos">Artículos</button>
+            <button class="tab-btn" data-tab="formularios">Formularios</button>
+        </nav>
+
+        <!-- Productos -->
+        <section id="tab-productos" class="admin-section" aria-labelledby="productos-heading">
+            <header class="section-header">
+                <h2 id="productos-heading">Gestionar Productos</h2>
+                <button class="btn-add" id="btn-new-product">+ Nuevo Producto</button>
+            </header>
+
+            <article id="product-form-container" class="admin-form-container hidden" aria-labelledby="product-form-title">
+                <h3 id="product-form-title">Crear Producto</h3>
+                <form id="form-producto" class="admin-form">
+                    <input type="hidden" id="product-id">
+                    <div class="form-group">
+                        <label for="product-name">Nombre</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description">Descripción</label>
+                        <textarea id="product-description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-category">Categoría</label>
+                        <select id="product-category">
+                            <option value="gadgets">Dispositivos</option>
+                            <option value="audio">Audio</option>
+                            <option value="accesorios">Accesorios</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price">Precio</label>
+                        <input type="number" id="product-price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-old-price">Precio anterior (opcional)</label>
+                        <input type="number" id="product-old-price" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-image">URL imagen</label>
+                        <input type="text" id="product-image" placeholder="assets/ejemplo.jpg">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-add">Guardar</button>
+                        <button type="button" class="btn-cancel" id="btn-cancel-product">Cancelar</button>
+                    </div>
+                </form>
+            </article>
+
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Artículos -->
+        <section id="tab-articulos" class="admin-section hidden" aria-labelledby="articulos-heading">
+            <header class="section-header">
+                <h2 id="articulos-heading">Gestionar Artículos</h2>
+                <button class="btn-add" id="btn-new-article">+ Nuevo Artículo</button>
+            </header>
+
+            <article id="article-form-container" class="admin-form-container hidden" aria-labelledby="article-form-title">
+                <h3 id="article-form-title">Crear Artículo</h3>
+                <form id="form-articulo" class="admin-form">
+                    <input type="hidden" id="article-id">
+                    <div class="form-group">
+                        <label for="article-title">Título</label>
+                        <input type="text" id="article-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="article-category">Categoría</label>
+                        <select id="article-category">
+                            <option value="Guías">Guías</option>
+                            <option value="Reviews">Reviews</option>
+                            <option value="Salud">Salud</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="article-image">URL imagen</label>
+                        <input type="text" id="article-image" placeholder="assets/ejemplo.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label for="article-content">Contenido</label>
+                        <textarea id="article-content" rows="5" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-add">Guardar</button>
+                        <button type="button" class="btn-cancel" id="btn-cancel-article">Cancelar</button>
+                    </div>
+                </form>
+            </article>
+
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Categoría</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="articles-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Formularios -->
+        <section id="tab-formularios" class="admin-section hidden" aria-labelledby="formularios-heading">
+            <header class="section-header">
+                <h2 id="formularios-heading">Mensajes de Contacto</h2>
+            </header>
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Mensaje</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contacts-table-body"></tbody>
+                </table>
+            </div>
+
+            <header class="section-header" style="margin-top: 2rem;">
+                <h2>Suscriptores Newsletter</h2>
+            </header>
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id="newsletter-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>
