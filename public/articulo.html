@@ -168,6 +168,9 @@
     <!-- Modal de autenticación -->
 
     <dialog class="auth-modal" aria-labelledby="auth-title" id="auth-modal">
+        <button type="button" class="auth-close" aria-label="Cerrar" onclick="document.getElementById('auth-modal').close()">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
         <article class="auth-content">
             <header class="auth-header">
                 <i class="fas fa-user-circle" aria-hidden="true"></i>
