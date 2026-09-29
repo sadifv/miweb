@@ -2232,8 +2232,16 @@ ul, ol {
     transition: transform 0.3s ease;
 }
 
+.cart-drawer[hidden] {
+    display: none !important;
+}
+
 .cart-drawer:not([hidden]) {
     transform: translateX(0);
+}
+
+.cart-overlay[hidden] {
+    display: none !important;
 }
 
 .cart-header {
@@ -2388,6 +2396,108 @@ ul, ol {
     width: 100%;
     padding: 0.9rem;
     font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+/* Cart Summary */
+.cart-summary {
+    margin-bottom: 1rem;
+}
+
+.cart-summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: var(--color-gray-700);
+}
+
+.cart-summary-row.cart-total-row {
+    border-top: 1px solid var(--color-gray-100);
+    margin-top: 0.5rem;
+    padding-top: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.cart-summary-row.cart-total-row strong {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+/* Cart Cupón */
+.cart-cupon {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.cart-cupon input {
+    flex: 1;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-family: var(--font-primary);
+}
+
+.cart-cupon input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.cart-cupon .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/* Cart Item Animation */
+.cart-item {
+    animation: slideInItem 0.3s ease;
+}
+
+@keyframes slideInItem {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Cart Drawer Animation */
+.cart-drawer {
+    animation: slideInDrawer 0.3s ease;
+}
+
+@keyframes slideInDrawer {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Cart Overlay Animation */
+.cart-overlay {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Blog Post Page */

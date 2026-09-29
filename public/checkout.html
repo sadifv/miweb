@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TechStore</title>
+    <link rel="stylesheet" href="/css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container" role="navigation" aria-label="Navegación principal">
+            <p class="logo">
+                <a href="/" aria-label="TechStore - Inicio">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span>Tech<strong>Store</strong></span>
+                </a>
+            </p>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="/" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="/productos.html" role="menuitem">Productos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <nav class="breadcrumb" aria-label="Migas de pan">
+            <ol>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/productos.html">Productos</a></li>
+                <li aria-current="page">Checkout</li>
+            </ol>
+        </nav>
+
+        <!-- Paso 1: Revisar carrito -->
+        <section id="step-1" class="checkout-step" aria-labelledby="step1-heading">
+            <h2 id="step1-heading"><span class="step-number">1</span> Revisa tu carrito</h2>
+            <section id="checkout-items" class="checkout-items" aria-label="Items del carrito">
+                <p class="cart-empty">Cargando carrito...</p>
+            </section>
+            <section class="checkout-actions">
+                <a href="/productos.html" class="btn btn-secondary">Seguir comprando</a>
+                <button class="btn btn-primary" id="btn-to-step-2">Continuar</button>
+            </section>
+        </section>
+
+        <!-- Paso 2: Datos de envío -->
+        <section id="step-2" class="checkout-step hidden" aria-labelledby="step2-heading">
+            <h2 id="step2-heading"><span class="step-number">2</span> Datos de envío</h2>
+            <form id="shipping-form" class="checkout-form">
+                <p class="form-group">
+                    <label for="shipping-name">Nombre completo</label>
+                    <input type="text" id="shipping-name" required>
+                </p>
+                <p class="form-group">
+                    <label for="shipping-email">Email</label>
+                    <input type="email" id="shipping-email" required>
+                </p>
+                <p class="form-group">
+                    <label for="shipping-phone">Teléfono</label>
+                    <input type="tel" id="shipping-phone" required>
+                </p>
+                <p class="form-group">
+                    <label for="shipping-address">Dirección</label>
+                    <textarea id="shipping-address" rows="3" required></textarea>
+                </p>
+                <p class="form-group">
+                    <label for="shipping-city">Ciudad</label>
+                    <input type="text" id="shipping-city" required>
+                </p>
+                <p class="checkout-actions">
+                    <button type="button" class="btn btn-secondary" id="btn-back-step-1">Volver</button>
+                    <button type="submit" class="btn btn-primary">Continuar</button>
+                </p>
+            </form>
+        </section>
+
+        <!-- Paso 3: Confirmación -->
+        <section id="step-3" class="checkout-step hidden" aria-labelledby="step3-heading">
+            <h2 id="step3-heading"><span class="step-number">3</span> Confirmación</h2>
+            <section class="checkout-summary" aria-label="Resumen del pedido">
+                <p class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="summary-subtotal">$0.00</span>
+                </p>
+                <p class="summary-row">
+                    <span>Envío:</span>
+                    <span style="color: #10b981;">Gratis</span>
+                </p>
+                <p class="summary-row discount" id="summary-discount-row" style="display: none;">
+                    <span>Descuento:</span>
+                    <span id="summary-discount" style="color: #10b981;">-$0.00</span>
+                </p>
+                <p class="summary-row total">
+                    <span>Total:</span>
+                    <strong id="summary-total">$0.00</strong>
+                </p>
+            </section>
+            <section class="checkout-actions">
+                <button type="button" class="btn btn-secondary" id="btn-back-step-2">Volver</button>
+                <button type="button" class="btn btn-primary" id="btn-confirm-order">
+                    <i class="fas fa-check" aria-hidden="true"></i> Confirmar pedido
+                </button>
+            </section>
+        </section>
+
+        <!-- Confirmación exitosa -->
+        <section id="step-success" class="checkout-step hidden" aria-labelledby="success-heading">
+            <article class="success-message">
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <h2 id="success-heading">¡Pedido confirmado!</h2>
+                <p>Gracias por tu compra. Te contactaremos pronto.</p>
+                <a href="/" class="btn btn-primary">Volver al inicio</a>
+            </article>
+        </section>
+    </main>
+
+    <script src="/js/checkout.js"></script>
+</body>
+</html>

@@ -602,11 +602,29 @@
             <p class="cart-empty">Tu carrito está vacío</p>
         </div>
         <footer class="cart-footer">
-            <p class="cart-total">
-                <span>Total:</span>
-                <strong id="cart-total">$0.00</strong>
-            </p>
-            <button class="btn btn-primary cart-checkout" id="cart-checkout">
+            <div class="cart-summary">
+                <div class="cart-summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="cart-summary-row cart-discount" style="display: none;">
+                    <span>Descuento:</span>
+                    <span id="cart-descuento" style="color: #10b981;">-$0.00</span>
+                </div>
+                <div class="cart-summary-row cart-shipping">
+                    <span>Envío:</span>
+                    <span style="color: #10b981;">Gratis</span>
+                </div>
+                <div class="cart-summary-row cart-total-row">
+                    <span>Total:</span>
+                    <strong id="cart-total">$0.00</strong>
+                </div>
+            </div>
+            <div class="cart-cupon">
+                <input type="text" id="cupon-input" placeholder="Código de cupón">
+                <button type="button" id="btn-cupon" class="btn btn-secondary">Aplicar</button>
+            </div>
+            <button type="button" class="btn btn-primary cart-checkout" id="cart-checkout">
                 <i class="fas fa-lock" aria-hidden="true"></i> Finalizar compra
             </button>
         </footer>
