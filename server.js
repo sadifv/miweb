@@ -1,10 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
+const connectDB = require('./config/db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Conectar a MongoDB
+connectDB();
 
 // Middleware
 app.use(express.json());
@@ -22,12 +25,9 @@ app.use((req, res, next) => {
 });
 
 // Rutas API
-app.use('/api/productos', require('./routes/productos'));
-app.use('/api/articulos', require('./routes/articulos'));
-app.use('/api/formularios', require('./routes/formularios'));
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/carrito', require('./routes/carrito'));
-app.use('/api/admin', require('./routes/admin'));
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/productos', require('./routes/productRoutes'));
+app.use('/api/pedidos', require('./routes/orderRoutes'));
 
 // Endpoint GET /
 app.get('/', (req, res) => {
@@ -47,10 +47,3 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
     console.log(`API disponible en http://localhost:${PORT}/api`);
 });
-
-// Conexión a MongoDB (no bloquea el servidor)
-const MONGODB_URI = process.env.MONGODB_URI;
-
-mongoose.connect(MONGODB_URI)
-    .then(() => console.log('✓ Conectado a MongoDB'))
-    .catch(err => console.error('✗ Error conectando a MongoDB:', err.message));

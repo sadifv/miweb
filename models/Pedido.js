@@ -17,10 +17,10 @@ const pedidoSchema = new mongoose.Schema({
     envio: { type: Number, default: 0 },
     descuento: { type: Number, default: 0 },
     total: { type: Number, required: true },
-    estado: { 
-        type: String, 
-        enum: ['pendiente', 'pagado', 'enviado', 'entregado', 'cancelado'], 
-        default: 'pendiente' 
+    estado: {
+        type: String,
+        enum: ['pendiente', 'pagado', 'enviado', 'entregado', 'cancelado'],
+        default: 'pendiente'
     },
     direccionEnvio: {
         calle: String,

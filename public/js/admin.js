@@ -117,6 +117,7 @@ async function loadUsuarios() {
                 <td>${u.email}</td>
                 <td>${u.telefono || '-'}</td>
                 <td>${new Date(u.createdAt).toLocaleDateString()}</td>
+                <td>${u.lastLogin ? new Date(u.lastLogin).toLocaleDateString() : 'Nunca'}</td>
                 <td>${u.rol}</td>
                 <td>
                     <span class="badge ${u.activo ? 'badge-success' : 'badge-danger'}">

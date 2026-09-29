@@ -1,34 +1,29 @@
 {
   "name": "miweb",
-  "version": "1.0.0",
-  "description": "Landing page de e-commerce para una tienda de accesorios tecnológicos. Proyecto web estático construido con **HTML semántico**, **CSS moderno** y **JavaScript vanilla**.",
+  "version": "2.0.0",
+  "description": "E-commerce Full Stack - TechStore con Node.js, Express y MongoDB",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "migrate": "node scripts/migrate.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrate": "node scripts/migrate.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sadifv/miweb.git"
   },
-  "keywords": [],
+  "keywords": ["ecommerce", "nodejs", "express", "mongodb", "jwt"],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/sadifv/miweb/issues"
-  },
-  "homepage": "https://github.com/sadifv/miweb#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.4",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.10.2"
   },
   "devDependencies": {
-    "dotenv": "^18.0.4",
     "nodemon": "^3.1.14"
   }
 }
