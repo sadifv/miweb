@@ -43,8 +43,7 @@
                     </a>
                 </p>
                 <ul class="nav-menu" role="menubar">
-                    <li role="none"><a href="/" role="menuitem">Inicio</a></li>
-                    <li role="none"><a href="/productos.html" role="menuitem">Productos</a></li>
+                    <li role="none"><a href="/" role="menuitem">Ver tienda</a></li>
                     <li role="none"><a href="/admin.html" role="menuitem" aria-current="page">Admin</a></li>
                 </ul>
                 <button class="btn-logout" id="btn-logout">
@@ -58,97 +57,85 @@
             <header class="admin-header">
                 <section class="admin-title">
                     <h1>Panel de Administración</h1>
-                    <p>Gestiona productos, artículos y formularios</p>
-                </section>
-                <section class="admin-stats" aria-label="Estadísticas">
-                    <article class="stat-card">
-                        <span class="stat-number" id="stat-products">0</span>
-                        <span class="stat-label">Productos</span>
-                    </article>
-                    <article class="stat-card">
-                        <span class="stat-number" id="stat-articles">0</span>
-                        <span class="stat-label">Artículos</span>
-                    </article>
+                    <p>Gestiona tu tienda TechStore</p>
                 </section>
             </header>
 
+            <!-- KPIs / Métricas -->
+            <section class="admin-stats" aria-label="Métricas principales">
+                <article class="stat-card">
+                    <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+                    <span class="stat-number" id="stat-ventas">$0</span>
+                    <span class="stat-label">Ventas totales</span>
+                </article>
+                <article class="stat-card">
+                    <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                    <span class="stat-number" id="stat-pedidos">0</span>
+                    <span class="stat-label">Pedidos</span>
+                </article>
+                <article class="stat-card">
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                    <span class="stat-number" id="stat-clientes">0</span>
+                    <span class="stat-label">Clientes</span>
+                </article>
+                <article class="stat-card">
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <span class="stat-number" id="stat-stock">0</span>
+                    <span class="stat-label">Bajo stock</span>
+                </article>
+            </section>
+
+            <!-- Tabs -->
             <nav class="admin-tabs" aria-label="Secciones de administración">
-                <button class="tab-btn active" data-tab="productos">
+                <button class="tab-btn active" data-tab="usuarios">
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                    <span>Usuarios</span>
+                </button>
+                <button class="tab-btn" data-tab="productos">
                     <i class="fas fa-box" aria-hidden="true"></i>
                     <span>Productos</span>
                 </button>
-                <button class="tab-btn" data-tab="articulos">
-                    <i class="fas fa-newspaper" aria-hidden="true"></i>
-                    <span>Artículos</span>
+                <button class="tab-btn" data-tab="pedidos">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span>Pedidos</span>
                 </button>
-                <button class="tab-btn" data-tab="formularios">
+                <button class="tab-btn" data-tab="mensajes">
                     <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <span>Formularios</span>
+                    <span>Mensajes</span>
                 </button>
             </nav>
 
-            <!-- Productos -->
-            <section id="tab-productos" class="admin-section" aria-labelledby="productos-heading">
+            <!-- Usuarios -->
+            <section id="tab-usuarios" class="admin-section" aria-labelledby="usuarios-heading">
                 <header class="section-header">
-                    <h2 id="productos-heading">Productos</h2>
+                    <h2 id="usuarios-heading">Usuarios Registrados</h2>
+                </header>
+                <section class="table-container" aria-label="Lista de usuarios">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Teléfono</th>
+                                <th scope="col">Registro</th>
+                                <th scope="col">Rol</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usuarios-table-body"></tbody>
+                    </table>
+                </section>
+            </section>
+
+            <!-- Productos -->
+            <section id="tab-productos" class="admin-section hidden" aria-labelledby="productos-heading">
+                <header class="section-header">
+                    <h2 id="productos-heading">Catálogo de Productos</h2>
                     <button class="btn-add" id="btn-new-product">
                         <i class="fas fa-plus" aria-hidden="true"></i>
                         <span>Nuevo</span>
                     </button>
                 </header>
-
-                <article id="product-form-container" class="admin-form-container hidden" aria-labelledby="product-form-title">
-                    <header class="form-header">
-                        <h3 id="product-form-title">Crear Producto</h3>
-                        <button type="button" class="btn-close" id="btn-cancel-product" aria-label="Cerrar formulario">
-                            <i class="fas fa-times" aria-hidden="true"></i>
-                        </button>
-                    </header>
-                    <form id="form-producto" class="admin-form">
-                        <input type="hidden" id="product-id">
-                        <fieldset class="form-row">
-                            <legend class="sr-only">Información del producto</legend>
-                            <p class="form-group">
-                                <label for="product-name">Nombre</label>
-                                <input type="text" id="product-name" required>
-                            </p>
-                            <p class="form-group">
-                                <label for="product-category">Categoría</label>
-                                <select id="product-category">
-                                    <option value="gadgets">Dispositivos</option>
-                                    <option value="audio">Audio</option>
-                                    <option value="accesorios">Accesorios</option>
-                                </select>
-                            </p>
-                        </fieldset>
-                        <p class="form-group">
-                            <label for="product-description">Descripción</label>
-                            <textarea id="product-description" rows="3" required></textarea>
-                        </p>
-                        <fieldset class="form-row">
-                            <legend class="sr-only">Precios</legend>
-                            <p class="form-group">
-                                <label for="product-price">Precio</label>
-                                <input type="number" id="product-price" step="0.01" required>
-                            </p>
-                            <p class="form-group">
-                                <label for="product-old-price">Precio anterior</label>
-                                <input type="number" id="product-old-price" step="0.01">
-                            </p>
-                        </fieldset>
-                        <p class="form-group">
-                            <label for="product-image">URL imagen</label>
-                            <input type="text" id="product-image" placeholder="assets/ejemplo.jpg">
-                        </p>
-                        <p class="form-actions">
-                            <button type="submit" class="btn-add">
-                                <i class="fas fa-check" aria-hidden="true"></i>
-                                <span>Guardar</span>
-                            </button>
-                        </p>
-                    </form>
-                </article>
-
                 <section class="table-container" aria-label="Lista de productos">
                     <table class="admin-table">
                         <thead>
@@ -157,84 +144,43 @@
                                 <th scope="col">Imagen</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Precio</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="products-table-body"></tbody>
-                    </table>
-                </section>
-            </section>
-
-            <!-- Artículos -->
-            <section id="tab-articulos" class="admin-section hidden" aria-labelledby="articulos-heading">
-                <header class="section-header">
-                    <h2 id="articulos-heading">Artículos</h2>
-                    <button class="btn-add" id="btn-new-article">
-                        <i class="fas fa-plus" aria-hidden="true"></i>
-                        <span>Nuevo</span>
-                    </button>
-                </header>
-
-                <article id="article-form-container" class="admin-form-container hidden" aria-labelledby="article-form-title">
-                    <header class="form-header">
-                        <h3 id="article-form-title">Crear Artículo</h3>
-                        <button type="button" class="btn-close" id="btn-cancel-article" aria-label="Cerrar formulario">
-                            <i class="fas fa-times" aria-hidden="true"></i>
-                        </button>
-                    </header>
-                    <form id="form-articulo" class="admin-form">
-                        <input type="hidden" id="article-id">
-                        <p class="form-group">
-                            <label for="article-title">Título</label>
-                            <input type="text" id="article-title" required>
-                        </p>
-                        <fieldset class="form-row">
-                            <legend class="sr-only">Información del artículo</legend>
-                            <p class="form-group">
-                                <label for="article-category">Categoría</label>
-                                <select id="article-category">
-                                    <option value="Guías">Guías</option>
-                                    <option value="Reviews">Reviews</option>
-                                    <option value="Salud">Salud</option>
-                                </select>
-                            </p>
-                            <p class="form-group">
-                                <label for="article-image">URL imagen</label>
-                                <input type="text" id="article-image" placeholder="assets/ejemplo.jpg">
-                            </p>
-                        </fieldset>
-                        <p class="form-group">
-                            <label for="article-content">Contenido</label>
-                            <textarea id="article-content" rows="6" required></textarea>
-                        </p>
-                        <p class="form-actions">
-                            <button type="submit" class="btn-add">
-                                <i class="fas fa-check" aria-hidden="true"></i>
-                                <span>Guardar</span>
-                            </button>
-                        </p>
-                    </form>
-                </article>
-
-                <section class="table-container" aria-label="Lista de artículos">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Título</th>
+                                <th scope="col">Stock</th>
                                 <th scope="col">Categoría</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody id="articles-table-body"></tbody>
+                        <tbody id="productos-table-body"></tbody>
                     </table>
                 </section>
             </section>
 
-            <!-- Formularios -->
-            <section id="tab-formularios" class="admin-section hidden" aria-labelledby="formularios-heading">
+            <!-- Pedidos -->
+            <section id="tab-pedidos" class="admin-section hidden" aria-labelledby="pedidos-heading">
                 <header class="section-header">
-                    <h2 id="formularios-heading">Mensajes de Contacto</h2>
+                    <h2 id="pedidos-heading">Pedidos y Ventas</h2>
+                </header>
+                <section class="table-container" aria-label="Lista de pedidos">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Items</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pedidos-table-body"></tbody>
+                    </table>
+                </section>
+            </section>
+
+            <!-- Mensajes -->
+            <section id="tab-mensajes" class="admin-section hidden" aria-labelledby="mensajes-heading">
+                <header class="section-header">
+                    <h2 id="mensajes-heading">Mensajes de Contacto</h2>
                 </header>
                 <section class="table-container" aria-label="Mensajes de contacto">
                     <table class="admin-table">
@@ -246,7 +192,7 @@
                                 <th scope="col">Mensaje</th>
                             </tr>
                         </thead>
-                        <tbody id="contacts-table-body"></tbody>
+                        <tbody id="mensajes-table-body"></tbody>
                     </table>
                 </section>
 

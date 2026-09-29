@@ -27,6 +27,7 @@ app.use('/api/articulos', require('./routes/articulos'));
 app.use('/api/formularios', require('./routes/formularios'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/carrito', require('./routes/carrito'));
+app.use('/api/admin', require('./routes/admin'));
 
 // Endpoint GET /
 app.get('/', (req, res) => {
