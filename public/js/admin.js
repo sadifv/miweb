@@ -22,19 +22,28 @@ function showLoginPrompt() {
     `;
 }
 
-// Credenciales de administrador (solo una persona puede acceder)
-const ADMIN_EMAIL = 'admin@techstore.com';
-const ADMIN_PASSWORD = 'admin123';
-
-function loginAdmin() {
+async function loginAdmin() {
     const email = prompt('Email de administrador:');
     const password = prompt('Contraseña:');
     
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-        localStorage.setItem('admin_logged_in', 'true');
-        location.reload();
-    } else {
-        alert('Credenciales inválidas');
+    try {
+        const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        
+        const data = await res.json();
+        
+        if (data.success) {
+            localStorage.setItem('admin_logged_in', 'true');
+            localStorage.setItem('admin_token', data.token);
+            location.reload();
+        } else {
+            alert(data.error || 'Credenciales inválidas');
+        }
+    } catch (error) {
+        alert('Error de conexión');
     }
 }
 
