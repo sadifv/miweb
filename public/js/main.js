@@ -133,14 +133,21 @@ backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 's
 const searchInput = document.getElementById('search-input');
 const searchResults = document.querySelector('.search-results');
 
-const products = Array.from(document.querySelectorAll('.product-card')).map(card => ({
-    name: card.querySelector('h3')?.textContent?.trim() || '',
-    description: card.querySelector('.product-description')?.textContent?.trim() || '',
-    category: card.dataset.category || '',
-    price: card.querySelector('.new-price')?.textContent?.trim() || '',
-    image: card.querySelector('.product-image img')?.getAttribute('src') || '',
-    card: card
-}));
+// Cargar productos desde la API
+let products = [];
+
+async function loadProducts() {
+    try {
+        const respuesta = await fetch('/api/productos');
+        products = await respuesta.json();
+    } catch (error) {
+        console.error('Error cargando productos:', error);
+        products = [];
+    }
+}
+
+// Cargar productos al iniciar
+loadProducts();
 
 function renderSearchResults(query) {
     const q = query.toLowerCase().trim();
@@ -232,31 +239,17 @@ function saveCart(cart) {
 }
 
 function getProductData(id) {
-    const card = document.querySelector(`.product-card[data-category] .btn-add-cart[data-product-id="${id}"]`)?.closest('.product-card');
-    if (card) {
+    // Buscar en productos cargados desde la API
+    const producto = products.find(p => p.id === parseInt(id));
+    if (producto) {
         return {
-            id: id,
-            name: card.querySelector('h3')?.textContent?.trim() || 'Producto',
-            price: parseFloat(card.querySelector('.new-price')?.textContent?.replace(/[^0-9.]/g, '')) || 0,
-            image: card.querySelector('.product-image img')?.getAttribute('src') || ''
+            id: producto.id,
+            name: producto.name,
+            price: producto.price,
+            image: producto.image
         };
     }
-    // Fallback para producto.html
-    const productsData = {
-        1: { name: 'Smartwatch Pro X1 con Monitor Cardiaco', price: 89.99, image: '/assets/product-smartwatch.webp' },
-        2: { name: 'Auriculares Bluetooth 5.3 Noise Cancelling', price: 59.99, image: '/assets/product-headphones.jpg' },
-        3: { name: 'Cámara Instantánea con Impresión Incluida', price: 63.99, image: '/assets/product-camera.jpg' },
-        4: { name: 'Zapatillas Inteligentes con GPS Integrado', price: 119.99, image: '/assets/product-shoes.jpg' },
-        5: { name: 'Altavoz Portátil con Luces LED', price: 38.99, image: '/assets/product-speaker.jpg' },
-        6: { name: 'Reloj Inteligente Serie 8 con Esfera OLED', price: 159.99, image: '/assets/product-watch.jpg' },
-        7: { name: 'Tablet Android 12" con 128GB', price: 249.99, image: '/assets/product-tablet.jpg' },
-        8: { name: 'Teclado Mecánico RGB TKL', price: 67.99, image: '/assets/product-keyboard.jpg' },
-        9: { name: 'Mouse Gamer Pro 16000 DPI', price: 39.99, image: '/assets/product-mouse.jpg' },
-        10: { name: 'Webcam Full HD 1080p con Micrófono', price: 53.99, image: '/assets/product-webcam.jpg' },
-        11: { name: 'Cargador Inalámbrico 15W', price: 29.99, image: '/assets/product-charger.jpg' },
-        12: { name: 'Funda Protectora Universal 11"', price: 24.99, image: '/assets/product-case.jpg' }
-    };
-    return productsData[id] ? { id, ...productsData[id] } : null;
+    return null;
 }
 
 function addToCart(productId, quantity = 1) {
@@ -479,10 +472,22 @@ if (contactForm) {
         }
 
         if (isValid) {
-            if (typeof showToast === 'function') {
-                showToast('¡Mensaje enviado! Te contactaremos pronto');
-            }
-            contactForm.reset();
+            // Enviar a la API
+            fetch('/api/formularios/contacto', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nombre: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    mensaje: messageInput.value.trim()
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                showToast(data.mensaje || '¡Mensaje enviado!');
+                contactForm.reset();
+            })
+            .catch(() => showToast('Error al enviar el mensaje'));
         }
     });
 
@@ -505,10 +510,18 @@ if (newsletterForm) {
         }
 
         clearFieldError(emailInput);
-        if (typeof showToast === 'function') {
-            showToast('¡Suscripción exitosa! Revisa tu email');
-        }
-        newsletterForm.reset();
+        // Enviar a la API
+        fetch('/api/formularios/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailInput.value.trim() })
+        })
+        .then(res => res.json())
+        .then(data => {
+            showToast(data.mensaje || '¡Suscripción exitosa!');
+            newsletterForm.reset();
+        })
+        .catch(() => showToast('Error al suscribirse'));
     });
 
     emailInput.addEventListener('input', () => clearFieldError(emailInput));

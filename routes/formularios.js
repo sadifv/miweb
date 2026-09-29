@@ -3,6 +3,26 @@ const router = express.Router();
 const Contacto = require('../models/Contacto');
 const Newsletter = require('../models/Newsletter');
 
+// Ver todos los contactos
+router.get('/contacto', async (req, res) => {
+    try {
+        const contactos = await Contacto.find().sort({ fecha: -1 });
+        res.json(contactos);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener los contactos' });
+    }
+});
+
+// Ver todos los suscriptores
+router.get('/newsletter', async (req, res) => {
+    try {
+        const suscriptores = await Newsletter.find().sort({ fecha: -1 });
+        res.json(suscriptores);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener los suscriptores' });
+    }
+});
+
 // Formulario de contacto
 router.post('/contacto', async (req, res) => {
     const { nombre, email, mensaje } = req.body;
