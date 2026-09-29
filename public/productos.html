@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/auth.css">
 </head>
 <body>
     
@@ -541,53 +542,6 @@
         </p>
     </footer>
 
-    <!-- Modal de cuenta -->
-
-    <dialog class="account-modal" aria-labelledby="account-title">
-        <article class="account-content">
-            <header class="account-header">
-                <h3 id="account-title">Mi Cuenta</h3>
-                <button type="button" class="account-close" aria-label="Cerrar">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
-            </header>
-            <div class="account-tabs">
-                <button class="account-tab active" data-tab="login">Iniciar sesión</button>
-                <button class="account-tab" data-tab="register">Registrarse</button>
-            </div>
-            <form class="account-form" id="login-form">
-                <p class="form-row">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" placeholder="tu@email.com" required>
-                </p>
-                <p class="form-row">
-                    <label for="login-password">Contraseña</label>
-                    <input type="password" id="login-password" placeholder="••••••••" required>
-                </p>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Iniciar sesión
-                </button>
-            </form>
-            <form class="account-form hidden" id="register-form">
-                <p class="form-row">
-                    <label for="register-name">Nombre</label>
-                    <input type="text" id="register-name" placeholder="Tu nombre" required>
-                </p>
-                <p class="form-row">
-                    <label for="register-email">Email</label>
-                    <input type="email" id="register-email" placeholder="tu@email.com" required>
-                </p>
-                <p class="form-row">
-                    <label for="register-password">Contraseña</label>
-                    <input type="password" id="register-password" placeholder="••••••••" required>
-                </p>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-user-plus" aria-hidden="true"></i> Crear cuenta
-                </button>
-            </form>
-        </article>
-    </dialog>
-
     <!-- Drawer del carrito -->
 
     <div class="cart-overlay" hidden></div>
@@ -629,6 +583,85 @@
             </button>
         </footer>
     </aside>
+
+    <!-- Modal de autenticación -->
+
+    <dialog class="auth-modal" aria-labelledby="auth-title" id="auth-modal">
+        <article class="auth-content">
+            <header class="auth-header">
+                <i class="fas fa-user-circle" aria-hidden="true"></i>
+                <h3 id="auth-title">Mi Cuenta</h3>
+                <p>Inicia sesión o crea una cuenta</p>
+            </header>
+            <nav class="auth-tabs" aria-label="Opciones de autenticación">
+                <button class="auth-tab active" data-tab="login">Iniciar sesión</button>
+                <button class="auth-tab" data-tab="register">Registrarse</button>
+            </nav>
+            <article id="login-container" class="auth-form-container">
+                <form id="login-form">
+                    <p class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="tu@email.com" required>
+                    </p>
+                    <p class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" placeholder="••••••••" required>
+                    </p>
+                    <button type="submit" class="auth-submit">
+                        <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Iniciar sesión
+                    </button>
+                    <p class="auth-link" style="margin-top: 0.75rem;">
+                        <a href="#" id="show-recuperar">¿Olvidaste tu contraseña?</a>
+                    </p>
+                </form>
+            </article>
+            <article id="register-container" class="auth-form-container hidden">
+                <form id="register-form">
+                    <p class="form-group">
+                        <label for="register-name">Nombre *</label>
+                        <input type="text" id="register-name" placeholder="Tu nombre" required>
+                    </p>
+                    <p class="form-group">
+                        <label for="register-apellido">Apellido *</label>
+                        <input type="text" id="register-apellido" placeholder="Tu apellido" required>
+                    </p>
+                    <p class="form-group">
+                        <label for="register-email">Email *</label>
+                        <input type="email" id="register-email" placeholder="tu@email.com" required>
+                    </p>
+                    <p class="form-group">
+                        <label for="register-telefono">Teléfono (opcional)</label>
+                        <input type="tel" id="register-telefono" placeholder="+593 99 999 9999">
+                    </p>
+                    <p class="form-group">
+                        <label for="register-password">Contraseña *</label>
+                        <input type="password" id="register-password" placeholder="Mínimo 6 caracteres" required>
+                    </p>
+                    <p class="form-group">
+                        <label for="register-confirm">Confirmar contraseña *</label>
+                        <input type="password" id="register-confirm" placeholder="Repite tu contraseña" required>
+                    </p>
+                    <button type="submit" class="auth-submit">
+                        <i class="fas fa-user-plus" aria-hidden="true"></i> Crear cuenta
+                    </button>
+                </form>
+            </article>
+            <article id="recover-container" class="auth-form-container hidden">
+                <form id="recover-form">
+                    <p class="form-group">
+                        <label for="recover-email">Email</label>
+                        <input type="email" id="recover-email" placeholder="tu@email.com" required>
+                    </p>
+                    <button type="submit" class="auth-submit">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar instrucciones
+                    </button>
+                </form>
+                <p class="auth-link">
+                    <a href="#" id="back-to-login">Volver al login</a>
+                </p>
+            </article>
+        </article>
+    </dialog>
 
     <!-- Modal de búsqueda -->
 
@@ -689,6 +722,7 @@
     </button>
 
     <script src="/js/main.js" defer></script>
+    <script src="/js/auth.js" defer></script>
 
 </body>
 </html>
